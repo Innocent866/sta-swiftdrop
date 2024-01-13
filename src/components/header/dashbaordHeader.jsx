@@ -6,7 +6,7 @@ export default function DashboardHeader() {
 
         <>
 
-            <header className="navbar sticky-top bg-white flex-md-nowrap p-2" data-bs-theme="dark">
+            <header className="navbar sticky-top bg-white flex-md-nowrap p-0" data-bs-theme="dark">
                 <a className="navbar-brand col-md-3 col-lg-2  me-0 py-0 my-0 px-3 space-between fs-6 text-dark" href="#">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 49 49" fill="none">
@@ -41,7 +41,7 @@ export default function DashboardHeader() {
 
                             <BrowserView>
                                 <div className="input-group input-flex">
-                                    <input className="form-control bg-white border text-dark rounded-pill" type="text" placeholder="search" id="example-search-input" />
+                                    <input className="form-control bg-white border text-dark rounded-pill py-2" type="text" placeholder="search" id="example-search-input" />
                                     <span className="input-group-append">
                                         <button className="btn  ms-n5" type="button">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
