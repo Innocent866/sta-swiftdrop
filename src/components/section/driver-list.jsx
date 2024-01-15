@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DriverListComponent from "../driverListComponent/hello";
 
 export default function DriversListSection() {
 
@@ -20,8 +21,8 @@ export default function DriversListSection() {
                     </nav>
                 </div>
 
-                <div>
-                    <h1>Driver List Section Page</h1>
+                <div className="py-2">
+                    <DriverListComponent/>
                 </div>
             </div>
 

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import RightSideBar from '../dashboardComponent/bar/RightSideBar';
 export default function DashboardSection() {
 
     return (
@@ -17,10 +18,16 @@ export default function DashboardSection() {
                         </ol>
                     </nav>
                 </div>
-                <div>
-
-                    <h1>Dashboard Section Page</h1>
-                </div>
+                <div className='py-2'>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: '1rem',
+                        }}>
+                        {/* <GoogleMapComponent /> */}
+                        <RightSideBar />
+                    </div>
+                </div>     
             </div>
 
         </>

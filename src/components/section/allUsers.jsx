@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import AllUserComponent from "../allUserComponent/hello"
 export default function allUserSection() {
 
     return (
@@ -17,8 +18,7 @@ export default function allUserSection() {
                     </nav>
                 </div>
                 <div>
-
-                    <h1>All Users Section Page</h1>
+                    <AllUserComponent/>
                 </div>
             </div>
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import OperatorsComponent from "../operatorsComponent/hello";
 export default function operatorsSection() {
 
     return (
@@ -18,7 +19,7 @@ export default function operatorsSection() {
                 </div>
                 <div>
 
-                    <h1>operators Section Page</h1>
+                    <OperatorsComponent/>
                 </div>
             </div>
 

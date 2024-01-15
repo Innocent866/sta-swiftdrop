@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import GeneralSettingComponent from "../generalSettingComponent/hello";
 
 export default function generalSetting() {
     return (
@@ -17,9 +18,8 @@ export default function generalSetting() {
                         </ol>
                     </nav>
                 </div>
-                <div>
-
-                    <h1>General Section Page</h1>
+                <div className="py-2">
+                    <GeneralSettingComponent/>
                 </div>
             </div>
         </>

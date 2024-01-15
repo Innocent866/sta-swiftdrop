@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ProfileComponent from "../profileComponent/hello/index";
 export default function ProfileSection() {
 
     return (
@@ -16,9 +17,8 @@ export default function ProfileSection() {
                         </ol>
                     </nav>
                 </div>
-                <div>
-
-                    <h1>Profile Section Page</h1>
+                <div className="py-2">
+                    <ProfileComponent/>
                 </div>
             </div>
         </>

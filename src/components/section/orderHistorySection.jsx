@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import OtherHistoryComponent from "../otherHistoryComponent/hello";
 export default function OrderHistorySection() {
 
     return (
@@ -19,9 +19,8 @@ export default function OrderHistorySection() {
                     </nav>
                 </div>
 
-                <div>
-
-                    <h1>Order History Section Page</h1>
+                <div className="py-2">
+                    <OtherHistoryComponent/>
                 </div>
             </div>
         </>

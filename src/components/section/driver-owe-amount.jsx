@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import DriverOweAmountComponent from "../driverOweAmountComponent/hello";
 
 export default function DriverOweAmountSection() {
 
@@ -20,8 +21,8 @@ export default function DriverOweAmountSection() {
                     </nav>
                 </div>
 
-                <div>
-                    <h1>Driver Owe Amount Section Page</h1>
+                <div className="py-2">
+                    <DriverOweAmountComponent/>
                 </div>
             </div>
 

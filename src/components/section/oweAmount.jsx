@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FoodOweAmountComponent from "../foodOweAmoutcomponent/hello";
 export default function oweAmountSection() {
 
     return (
@@ -16,9 +17,9 @@ export default function oweAmountSection() {
                     </ol>
                     </nav>
                 </div>
-                <div>
+                <div className="py-2">
 
-                    <h1>Owe Amount Section Page</h1>
+                    <FoodOweAmountComponent/>
                 </div>
             </div>
 

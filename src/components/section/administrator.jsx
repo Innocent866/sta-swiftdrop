@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import AdministratorsComponent from "../administratorComponent/hello/index"
 export default function AdministratorSection() {
 
     return (
@@ -16,8 +17,8 @@ export default function AdministratorSection() {
                         </ol>
                     </nav>
                 </div>
-                <div>
-                    <h1>Administrator Section Page</h1>
+                <div className="py-2">
+                    <AdministratorsComponent/>
                 </div>
             </div>
 

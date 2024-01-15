@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FoodSellListComponent from "../foodSellerListComponent/hello";
 export default function SettingSection() {
 
     return (
@@ -15,8 +16,8 @@ export default function SettingSection() {
                         </ol>
                     </nav>
                 </div>
-                <div>
-                    <h2>Food Setting</h2>
+                <div className="py-2">
+                    <FoodSellListComponent/>
                 </div>
             </div>
         </>

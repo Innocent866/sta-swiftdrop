@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
+import FaqComponent from "../faqComponent/hello";
 
 export default function FaqSection() {
     return (
 
         <>
-
             <div className="height">
                 
                 <div className="breadcrumb-flex">
@@ -17,9 +17,8 @@ export default function FaqSection() {
                         </ol>
                     </nav>
                 </div>
-                <div>
-
-                    <h1>FAQ Section Page</h1>
+                <div className="py-2">
+                    <FaqComponent/>
                 </div>
             </div>
         </>

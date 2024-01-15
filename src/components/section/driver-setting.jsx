@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DriverSettingComponent from "../driverSettingComponents/hello";
 
 export default function DriverSettingSection() {
 
@@ -19,8 +20,8 @@ export default function DriverSettingSection() {
                     </nav>
                 </div>
 
-                <div>
-                    <h1>Driver Setting Section Page</h1>
+                <div className="py-2">
+                    <DriverSettingComponent/>
                 </div>
             </div>
 
