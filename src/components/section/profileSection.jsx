@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ProfileComponent from "../profileComponent/hello/index";
+import AdeComponent from "../profileComponent/ade";
 export default function ProfileSection() {
 
     return (
@@ -19,6 +20,7 @@ export default function ProfileSection() {
                 </div>
                 <div className="py-2">
                     <ProfileComponent/>
+                    <AdeComponent/>
                 </div>
             </div>
         </>
