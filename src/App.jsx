@@ -30,6 +30,8 @@ import DriverOweAmountPage from "./pages/driverOweAmount";
 import OtherHistoryPage from "./pages/order-history";
 import FaqPage from "./pages/faq";
 import GeneralSettingPage from "./pages/general-setting";
+import NewDashboardPage from "./pages/dashboard/newdashboard/index";
+import InsidefaqPage from "./pages/faq/insideFaq/index"
 
 export default function App() {
 
@@ -62,6 +64,11 @@ export default function App() {
             exact
             path="/all-user"
             element={<AllUserPage />}
+          />
+          <Route 
+            exact
+            path="/new-dashboard"
+            element={<NewDashboardPage />}
           />
           <Route 
             exact
@@ -110,6 +117,11 @@ export default function App() {
             exact
             path="/faq"
             element={<FaqPage />}
+          />
+          <Route 
+            exact
+            path="/inside-faq"
+            element={<InsidefaqPage />}
           />
           <Route 
             exact
