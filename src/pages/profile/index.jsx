@@ -1,6 +1,7 @@
+
 import DashboardHeader from '../../components/header/dashbaordHeader'
 import DashbaordSidebar from '../../components/header/dashboardSidebar'
-import ProfileSection from '../../components/section/profileSection'
+import ProfileSection from '../../components/section/profileSection';
 import '../../components/styles/dashboard-styles/styles.css'
 
 export default function ProfilePage() {
@@ -8,7 +9,6 @@ export default function ProfilePage() {
     return (
 
         <>
-
             <DashboardHeader />
 
             <div className='container-fluid'>
@@ -36,13 +36,13 @@ export default function ProfilePage() {
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4" style={{ backgroundColor: "#F2F4F7" }}>
 
                         <ProfileSection />
+                        
 
                     </main>
 
                 </div>
 
             </div>
-
         </>
 
     )

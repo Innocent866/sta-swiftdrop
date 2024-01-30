@@ -6,6 +6,8 @@ import {
   
 } from "react-router-dom";
 
+//Admin
+
 //Main Dashboard component
 import MainDashboard from "./pages/dashboard";
 
@@ -36,12 +38,12 @@ export default function App() {
   return (
 
     <>
-
-      <Router>
+    <Router>
         <Routes>
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
+          
           <Route
             exact
             path="/"
@@ -50,7 +52,7 @@ export default function App() {
 
           <Route 
             exact
-            path="/profile"
+            path="/profile/*"
             element={<ProfilePage />}
           />
           <Route 
@@ -71,7 +73,7 @@ export default function App() {
 
           <Route 
             exact
-            path="/food-setting"
+            path="/food-setting/*"
             element={<SettingPage />}
           />
           <Route 
@@ -92,7 +94,7 @@ export default function App() {
           />
           <Route 
             exact
-            path="/driver-list"
+            path="/driver-list/*"
             element={<DriverListPage />}
           />
           <Route 
