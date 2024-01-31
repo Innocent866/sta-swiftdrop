@@ -6,6 +6,8 @@ import {
   
 } from "react-router-dom";
 
+//Admin
+
 //Main Dashboard component
 import MainDashboard from "./pages/dashboard";
 
@@ -30,18 +32,20 @@ import DriverOweAmountPage from "./pages/driverOweAmount";
 import OtherHistoryPage from "./pages/order-history";
 import FaqPage from "./pages/faq";
 import GeneralSettingPage from "./pages/general-setting";
+import NewDashboardPage from "./pages/dashboard/newdashboard/index";
+import InsidefaqPage from "./pages/faq/insideFaq/index"
 
 export default function App() {
 
   return (
 
     <>
-
-      <Router>
+    <Router>
         <Routes>
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
+          
           <Route
             exact
             path="/"
@@ -50,7 +54,7 @@ export default function App() {
 
           <Route 
             exact
-            path="/profile"
+            path="/profile/*"
             element={<ProfilePage />}
           />
           <Route 
@@ -65,13 +69,18 @@ export default function App() {
           />
           <Route 
             exact
+            path="/new-dashboard"
+            element={<NewDashboardPage />}
+          />
+          <Route 
+            exact
             path="/operators"
             element={<OperatorsPage />}
           />
 
           <Route 
             exact
-            path="/food-setting"
+            path="/food-setting/*"
             element={<SettingPage />}
           />
           <Route 
@@ -92,7 +101,7 @@ export default function App() {
           />
           <Route 
             exact
-            path="/driver-list"
+            path="/driver-list/*"
             element={<DriverListPage />}
           />
           <Route 
@@ -110,6 +119,11 @@ export default function App() {
             exact
             path="/faq"
             element={<FaqPage />}
+          />
+          <Route 
+            exact
+            path="/inside-faq"
+            element={<InsidefaqPage />}
           />
           <Route 
             exact

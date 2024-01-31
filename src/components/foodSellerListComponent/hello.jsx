@@ -9,8 +9,8 @@ export default function FoodSellListComponent() {
 
             <div>
                    
-                <h5>Food Seller List Component</h5>
-                
+                <h5>Food Seller List Component hdowd</h5>
+                <p>Test</p>
             </div>
             
         </>

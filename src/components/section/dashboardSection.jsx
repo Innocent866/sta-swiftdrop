@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import RightSideBar from '../dashboardComponent/bar/RightSideBar';
+import RightSideBar from '../dashboardComponent/bar/RightSid;
 import GoogleMapComponent from '../dashboardComponent/google/GoogleMapComponent';
 
 export default function DashboardSection() {
