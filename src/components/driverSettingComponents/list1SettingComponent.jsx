@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // import { Link } from "react-router-dom";
 
-export default function FoodSellListComponent() {
+export default function list1SettingComponent() {
 
     return (
 
@@ -9,8 +9,8 @@ export default function FoodSellListComponent() {
 
             <div>
                    
-                <h5>Food Seller List Component hdowd</h5>
-                <p>Test</p>
+                <h5>List1 dkdidd Component</h5>
+                
             </div>
             
         </>
