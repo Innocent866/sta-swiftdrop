@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import FoodSellListComponent from "../foodSellerListComponent/hello";
+import FoodSellListComponent from "../foodSellerListComponent";
 export default function foodSellerListSection() {
 
     return (
@@ -18,7 +18,7 @@ export default function foodSellerListSection() {
                     </nav>
                 </div>
 
-                <div className="py-2">
+                <div className="py-2 pb-5">
                     <FoodSellListComponent/>
                 </div>
             </div>
