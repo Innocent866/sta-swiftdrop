@@ -106,10 +106,10 @@ export default function Account(props) {
                   readOnly
                 />
       </Form.Group>
-      <div className='button-container'>
+      <div className='button-container-20'>
       <button
           type="button"
-          className="custom-submit"
+          className="custom-submit-G"
           onClick={() =>{
             navigate('/profile/User');
           }}

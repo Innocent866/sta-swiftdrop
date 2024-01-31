@@ -1,10 +1,12 @@
-import { Link, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import ProfileComponent from "../profileComponent/hello/index";
-import Password from '../../components/profileComponent/hello/Password'
-import Account from '../../components/profileComponent/hello/Account'
+import Password from '../../components/profileComponent/hello/Password';
+import Account from '../../components/profileComponent/hello/Account';
 import User from '../../components/profileComponent/hello/User';
 import Payment from '../../components/profileComponent/hello/Payment'
 import Forgot from "../../components/profileComponent/hello/Forgot"
+ 
 export default function ProfileSection() {
 
     
@@ -34,6 +36,7 @@ export default function ProfileSection() {
                     <Route path="Payment" element={<Payment />} />
                     <Route path="Forgot" element={<Forgot />} />
                     </Routes>
+                </div>
                 </div>
             </div>
         </>
