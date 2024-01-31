@@ -3,9 +3,8 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 
-const ForgotPassword = () => {
-  const [email, setEmail] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false)
+const ResetPassword = () => {
+  const [password, setPassword] = useState("");
    
 
   return (
@@ -16,8 +15,8 @@ const ForgotPassword = () => {
             Forgot Password?
           </h2>
           <p className="text-center">Let's help you recover your password</p>
-          {!isSuccess && (
-          <Form className="w-75 m-auto">
+
+          <Form className="w-75 m-auto" onSubmit={forgotPasswordHandler}>
             <Form.Label className="fs-6 text-secondary">Email </Form.Label>
 
             <FloatingLabel
@@ -29,28 +28,21 @@ const ForgotPassword = () => {
                 type="email"
                 placeholder="name@example.com"
                 className="border border-3 rounded"
-                value={email}
-                onChange={(val) => setEmail(val.toLocaleString())}
+                value={password}
+                onChange={(val) => setPassword(val.toLocaleString())}
               />
             </FloatingLabel>
 
             <div className="text-center">
-              <button className="btn btn-success px-5 py-2 text-white my-3" onClick={async() => {
-                await forgotPassword(email);
-                setIsSuccess(true)
-              }}>
+              <button className="btn btn-success px-5 py-2 text-white my-3" onClick={() => {}}>
                 Reset Password
               </button>
             </div>
           </Form>
-          )}
-          isSuccess && (
-            <p className="text-center">Reset instruction Sent Successfully</p>
-          )
         </div>
       </main>
     </>
   );
 };
 
-export default ForgotPassword;
+export default ResetPassword;
