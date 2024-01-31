@@ -1,64 +1,113 @@
-// GoogleMap.js
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { Autocomplete } from 'react-google-autocomplete';
 
 const GoogleMapComponent = () => {
   const [map, setMap] = useState(null);
-  const [center, setCenter] = useState({ lat: 0, lng: 0 });
+  const [restaurants, setRestaurants] = useState([]);
+  const [center, setCenter] = useState(null);
 
   const mapStyles = {
-    height: '600px',
-    width: '80%',
+    height: '900px',
+    width: '100%',
   };
 
-  const defaultCenter = { lat: 0, lng: 0 };
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch(
+          'https://swifdropp.onrender.com/api/v1/restaurant'
+        );
+        const data = await response.json();
+        console.log(data);
+        const availableRestaurants = data.restaurants.filter(
+          (restaurant) => restaurant.isAvailable
+        );
+
+        setRestaurants(availableRestaurants);
+      } catch (error) {
+        console.error('Error fetching restaurants:', error);
+      }
+    };
+
+    fetchRestaurants();
+  }, []);
 
   useEffect(() => {
-    // Try HTML5 geolocation
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setCenter({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
-        },
-        () => {
-          console.error('Error: The Geolocation service failed.');
-          setCenter(defaultCenter);
-        }
-      );
-    } else {
-      console.error("Error: Your browser doesn't support geolocation.");
-      setCenter(defaultCenter);
-    }
+    const watchLocation = () => {
+      if (navigator.geolocation) {
+        const watchId = navigator.geolocation.watchPosition(
+          (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            setCenter({ lat: latitude, lng: longitude });
+          },
+          (error) => {
+            console.error('Error getting current location:', error);
+          }
+        );
+        return () => navigator.geolocation.clearWatch(watchId);
+      } else {
+        console.error('Geolocation is not supported by your browser');
+      }
+    };
+
+    watchLocation();
   }, []);
 
   const onLoad = (map) => {
     setMap(map);
   };
-  const onPlaceSelected = (place) => {
-    // Update the map center when a place is selected from the autocomplete dropdown
-    setCenter({
-      lat: place.geometry.location.lat(),
-      lng: place.geometry.location.lng(),
-    });
+
+  const onMarkerClick = (markerPosition) => {
+    if (map && center) {
+      map.panTo(markerPosition);
+      map.setZoom(16);
+    }
   };
 
-  const googleMapsApiKey = 'AIzaSyCNESfWrhzXDsQYETsnsSKaNIEEFELV-E4';
-
+  const apiKey = 'AIzaSyDE83Koe2R_WZ1oOAt5SDicYKUBcBFLwy0';
   return (
-    <LoadScript googleMapsApiKey="AIzaSyCNESfWrhzXDsQYETsnsSKaNIEEFELV-E4">
-      <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={15}
-        center={center}
-        onLoad={onLoad}
-      >
-        <Marker position={center} />
-      </GoogleMap>
-    </LoadScript>
+    <div style={{ width: '700px' }}>
+      <LoadScript googleMapsApiKey={apiKey}>
+        <GoogleMap
+          mapContainerStyle={mapStyles}
+          zoom={12}
+          center={center}
+          onLoad={onLoad}
+        >
+          {restaurants.map((restaurant) => {
+            // Check if latitude and longitude are valid numbers
+            if (
+              typeof restaurant.coordinates.latitude === 'number' &&
+              typeof restaurant.coordinates.longitude === 'number'
+            ) {
+              return (
+                <Marker
+                  key={restaurant._id}
+                  position={{
+                    lat: restaurant.coordinates.latitude,
+                    lng: restaurant.coordinates.longitude,
+                  }}
+                  title={restaurant.restaurantName}
+                  onClick={() =>
+                    onMarkerClick({
+                      lat: restaurant.coordinates.latitude,
+                      lng: restaurant.coordinates.longitude,
+                    })
+                  }
+                />
+              );
+            } else {
+              // Handle invalid long and lat
+              console.warn(
+                `Invalid coordinates for restaurant ${restaurant._id}`
+              );
+              return null;
+            }
+          })}
+        </GoogleMap>
+      </LoadScript>
+    </div>
   );
 };
 
