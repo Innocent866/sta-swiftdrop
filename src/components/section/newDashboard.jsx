@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import RightSideBar from '../dashboardComponent/bar/RightSideBar';
 import Hello from "../dashboardComponent/bar/hello";
-export default function DashboardSection() {
+export default function newDashboardSection() {
 
     return (
 
