@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import RightSideBar from '../dashboardComponent/bar/RightSideBar';
 import GoogleMapComponent from '../dashboardComponent/google/GoogleMapComponent';
@@ -15,7 +14,6 @@ export default function DashboardSection() {
                   Application
                 </a>
               </li>
-
               <li className="breadcrumb-item active" aria-current="page">
                 <Link
                   to="/"
