@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import FoodSellListComponent from "../foodSellerListComponent";
+import FoodSellerCustomerComponent from "../../foodSellerListComponent/personal-info";
 export default function foodSellerListSection() {
 
     return (
@@ -19,7 +19,7 @@ export default function foodSellerListSection() {
                 </div>
 
                 <div className="py-2 pb-5">
-                    <FoodSellListComponent/>
+                    <FoodSellerCustomerComponent/>
                 </div>
             </div>
 
