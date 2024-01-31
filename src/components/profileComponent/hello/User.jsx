@@ -14,8 +14,6 @@ export default function User() {
   const [image, setImage] = useState('')
   const [previewImage, setPreviewImage] = useState('');
   const [loading, setLoading] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(null);
-
 
   useEffect(() => {
     const url = 'https://swifdropp.onrender.com/api/v1/company/details/6581527dc96a438562098fef';
@@ -49,20 +47,17 @@ export default function User() {
   function handleImage(e) {
     const selectedImage = e.target.files[0];
 
-    if (selectedImage) {
-      // Update the state to hold the selected image
-      setImage(selectedImage);
-  
-      // Set the preview image directly from the selected image
-      setPreviewImage(URL.createObjectURL(selectedImage));
-  
-      // Store the selected image in local storage (optional)
-     localStorage.setItem('profileImage', URL.createObjectURL(selectedImage));
+    // Update the state to hold the selected image
+    setImage(selectedImage);
 
-      setSelectedImage(selectedImage);
-    }
-  
+    // Create a URL for previewing the selected image
+    const imagePreviewURL = URL.createObjectURL(selectedImage);
     
+    // Update the state to hold the preview image URL
+    setPreviewImage(imagePreviewURL);
+
+    // Store the preview image URL in local storage
+    localStorage.setItem('profileImage', imagePreviewURL);
   }
 
   function handleApi() {
@@ -70,23 +65,21 @@ export default function User() {
     formData.append("image", image);
 
     axios.put('https://swifdropp.onrender.com/api/v1/company/profile/picture/6581527dc96a438562098fef', formData)
-    .then((res) => {
-      console.log('API Response:', res.data);
-  
-      // Assuming the response includes the updated image URL
-      const newImageUrl = res.data.imageUrl;
-  
-      // Update the state with the new image URL
-      setPreviewImage(newImageUrl);
-      console.log('Type of selectedImage:', typeof selectedImage);
-      setPreviewImage(URL.createObjectURL(selectedImage));
-      
-      // Store the new image URL in local storage
-      localStorage.setItem('profileImage', newImageUrl);
-    })
-    .catch((error) => {
-      console.error('Error uploading image:', error.message);
-    });
+      .then((res) => {
+        console.log(res);
+
+        // Assuming the response includes the updated image URL
+        const newImageUrl = res.data.imageUrl;
+
+        // Update the state with the new image URL
+        setPreviewImage(newImageUrl);
+
+        // Store the new image URL in local storage
+        localStorage.setItem('profileImage', newImageUrl);
+      })
+      .catch((error) => {
+        console.error('Error uploading image:', error.message);
+      });
   }
 
 
@@ -115,7 +108,7 @@ const updateInfo = async (event) => {
       
      <div className='use'>
      <div className='' style={{ marginLeft: '10px', marginRight: '10px', marginTop: '60px', marginBottom: 'auto' }}>
-      {previewImage && <img className='imgProfileStyle' src={previewImage} alt=''/>}
+      {previewImage && <img className='imgProfileStyle' src={previewImage || Swif} alt='' />}
       <input type='file' onChange={handleImage} />
       <button type='submit' className='user-button' onClick={handleApi}>
         Submit
