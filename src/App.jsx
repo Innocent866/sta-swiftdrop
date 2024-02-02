@@ -33,7 +33,7 @@ import OtherHistoryPage from "./pages/order-history";
 import FaqPage from "./pages/faq";
 import GeneralSettingPage from "./pages/general-setting";
 import NewDashboardPage from "./pages/dashboard/newdashboard/index";
-import InsidefaqPage from "./pages/faq/insideFaq/index"
+import InsidefaqPage from "./pages/faq/insideFaq/index";
 import FoodSellerCustomerPage from "./pages/food-seller-list/foodSellerCustomer";
 import AddEditFoodObjectPage from "./pages/food-seller-list/addEditFoodEdit";
 import ProductPage from "./pages/food-seller-list/product";
@@ -133,16 +133,11 @@ export default function App() {
             path="/food-seller-list/all-reviews"
             element={<AllReviewsPage />}
           />
-
           <Route 
             exact
             path="/food-seller-list/payout-methods"
             element={<PayoutMethodsPage />}
           />
-
-
-          
-
           <Route 
             exact
             path="/owe-amount"
