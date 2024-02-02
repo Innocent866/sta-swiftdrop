@@ -241,7 +241,7 @@ export default function addEditFoodObjectComponent() {
                             <label htmlFor="city">City
                                 </label>
                             <input id="city" type="text" className="form-control"
-                                name="city" value="Boston" />
+                                name="city" />
 
                         </div>
 
