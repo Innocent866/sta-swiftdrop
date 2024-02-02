@@ -557,9 +557,6 @@ input[type="date"]{
   display: flex;
   justify-content: space-between;
 }
-.button-container-20 {
-  display: flex;
-}
 .custom-submit {
   margin: 0 auto;
   margin-top: 6px;
@@ -567,31 +564,18 @@ input[type="date"]{
   background-color: #3490dc; 
   color: #ffffff; 
   font-weight: bold;
-  border-radius:5px;
+  border-radius: 0.25rem;
   cursor: pointer;
 }
-.custom-submit-G {
-   Width:171px;
-   Height:45px;
-   Top:1336px;
-   Left:500px;
-   margin-top: 30px;
-   background-color: white;
-    font-weight:550;
-    margin-left: -6px;
-    border-radius: 10px;
-}
 .custom-submit-F {
-   Width:171px;
-  Height:45px;
-  Top:1336px;
-  Left:500px;
-  background-color: #009688;
-  color: white;
-  margin-top: 30px;
-  font-weight:550;
-  margin-left: 30px;
+  margin-left: 5px;
+  margin-top: 6px;
+  padding: 2px 30px;
+  background-color: rgba(255, 0, 0, 0.596);
+  color: #ffffff; 
+  font-weight: bold;
   border-radius: 10px;
+  cursor: pointer;
 }
 .custom-submit-2 {
   display: block;
