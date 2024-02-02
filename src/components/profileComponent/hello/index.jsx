@@ -19,7 +19,7 @@ import {
     return(
       <>
       <div className='menu-container'>
-        <nav className='menu' style={{ width: '400px', height: '350px', border: '1px groove', marginLeft:'-20px'}}>
+        <nav className='menu' style={{ width: '435px', height: '413px', border: '1px groove', marginLeft:'-20px', top:'172px'}}>
           <div className='menu-set'>
           <img
                 className="  menu-avatar"

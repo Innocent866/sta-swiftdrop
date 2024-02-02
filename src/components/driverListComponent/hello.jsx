@@ -15,8 +15,8 @@ export default function DriverListComponent() {
     return (
 
         <>
-
-            <div>
+          <Table responsive>
+           <div>
                    
             <h4 style={{display:'flex', justifyContent:'space-between', marginBottom:'-20px'}}>
         List Of Drivers
@@ -60,7 +60,6 @@ export default function DriverListComponent() {
             <td>1</td>
             <td><img src={menu}/></td>
             <td style={{cursor:'pointer'}} onClick={()=>{
-               navigate('/driver-list/Info');
             }}>Gorge Samuel</td>
             <td>09045657890</td>
             <td>john@email.com</td>
@@ -131,10 +130,13 @@ export default function DriverListComponent() {
       </h5>
           </div>
                 
-            </div>
-            
+          </div>
+     
+    </Table>
         </>
+        
 
+        
     )
 
 }

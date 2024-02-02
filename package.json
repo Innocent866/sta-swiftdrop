@@ -20,11 +20,8 @@
     "react-bootstrap": "^2.10.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
+    "react-icons": "^5.0.1",
     "react-select": "^5.8.0"
-=======
-    "react-icons": "^5.0.1"
->>>>>>> 4622b781f8214e357027df17bb240017ea57dc50
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

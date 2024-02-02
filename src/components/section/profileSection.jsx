@@ -36,6 +36,7 @@ export default function ProfileSection() {
                     </Routes>
                 </div>
             </div>
+            </div>
         </>
 
     )
