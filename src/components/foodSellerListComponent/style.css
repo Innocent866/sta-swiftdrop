@@ -153,3 +153,10 @@ th{
   .td-data{
     font-size: 12px;
   }
+  .total-review span{
+    font-size: 13px;
+    /* font-weight: 600; */
+  }
+  .total-bold{
+    font-weight: 700;
+  }

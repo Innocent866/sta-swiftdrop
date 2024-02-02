@@ -25,15 +25,16 @@ export default function ProfileSection() {
                     </nav>
                 </div>
                 <div className="flex">
-                <div className="main">
-                <ProfileComponent />
-                    <Routes>
-                    <Route path="Account" element={<Account />} />
-                    <Route path="Password" element={<Password />} />
-                    <Route path="User" element={<User />} />
-                    <Route path="Payment" element={<Payment />} />
-                    <Route path="Forgot" element={<Forgot />} />
-                    </Routes>
+                    <div className="main">
+                        <ProfileComponent />
+                        <Routes>
+                        <Route path="Account" element={<Account />} />
+                        <Route path="Password" element={<Password />} />
+                        <Route path="User" element={<User />} />
+                        <Route path="Payment" element={<Payment />} />
+                        <Route path="Forgot" element={<Forgot />} />
+                        </Routes>
+                    </div>
                 </div>
             </div>
         </>
