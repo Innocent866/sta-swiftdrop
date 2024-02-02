@@ -74,7 +74,7 @@ export default function Password() {
     
   return(
     <>
-      <div className='company-info-container'style={{ width: '930px', height: '95%', right: '20', border: '1px groove'}}>
+      <div className='company-info-container'style={{ width: '900%', height: '95%', right: '20', border: '1px groove'}}>
         <h3 className='company-info-heading '>Change Password</h3>
       
      <div className='flex-container'>

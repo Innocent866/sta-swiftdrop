@@ -7,7 +7,7 @@ export default function Account(props) {
   const navigate  = useNavigate()
   return(
     <>
-      <div className="company-info-container"style={{ width:'1090px', height: '824%', right: '20', border: '1px groove', marginLeft:'20px'}}>
+      <div className="company-info-container" id='Company' style={{ width:'500%', height: '824%', right: '20', border: '1px groove', marginLeft:'20px'}}>
         <h3 className='company-info-heading'>Company Information</h3>
       
      <div className='flex-container '>

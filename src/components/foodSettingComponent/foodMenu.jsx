@@ -41,7 +41,7 @@ export default function foodMenu() {
       />
       </Form>
             </td>
-            <td><button style={{width:'80px', borderRadius:'15px', backgroundColor:'transparent', borderColor:'#4DB6AC', color:'#4DB6AC'}}>Active</button></td>
+            <td><button style={{width:'100%', borderRadius:'15px', backgroundColor:'transparent', borderColor:'#4DB6AC', color:'#4DB6AC'}}>Active</button></td>
             <td><p style={{cursor:'pointer'}}>Edit <Pencil/></p><p style={{cursor:'pointer', marginTop:'-10px'}}>Delete <Trash2Icon/></p></td>
           </tr>
           </tbody>
