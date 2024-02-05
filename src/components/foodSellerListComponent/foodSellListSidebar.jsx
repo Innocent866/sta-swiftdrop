@@ -30,7 +30,7 @@ export default function FoodSellListSidebar()  {
                 <span style={{paddingLeft: "8px"}}>Personal Info</span>
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to={{ name: 'setup.general' }} className="nav-link thumb">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path fillRule="evenodd" clipRule="evenodd" d="M4.66667 6.66667H13.3333C13.7015 6.66667 14 6.96514 14 7.33333V14C14 14.3682 13.7015 14.6667 13.3333 14.6667H2.66667C2.29848 14.6667 2 14.3682 2 14V7.33333C2 6.96514 2.29848 6.66667 2.66667 6.66667H3.33333V6C3.33255 3.83511 4.82076 1.95394 6.92773 1.45651C9.0347 0.959077 11.2071 1.97602 12.1747 3.91267L10.982 4.50867C10.2909 3.12517 8.73902 2.39869 7.23392 2.75412C5.72882 3.10954 4.66584 4.4535 4.66667 6V6.66667ZM3.33333 8V13.3333H12.6667V8H3.33333ZM9.33333 10H6.66667V11.3333H9.33333V10Z" fill="black"/>
@@ -46,7 +46,7 @@ export default function FoodSellListSidebar()  {
               </svg>
                 <span style={{paddingLeft: "8px"}}>Company Information</span>
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item mt-3">
               <Link to="/food-seller-list/add-and-edit-food" className="nav-link thumb">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -149,7 +149,7 @@ export default function FoodSellListSidebar()  {
       
 
 
-      <div className="card settings-card no-print">
+      <div className="card settings-card no-print mt-3">
         <div className="card-header bg-white between-flex">
           
             
@@ -169,7 +169,7 @@ export default function FoodSellListSidebar()  {
             </div>
             <div className="form-group col-md-12 mb-2">
                 <label htmlFor="comment">Comment</label>
-                <textarea id="comment" style={{fontSize: '13px'}}  className="form-control"
+                <textarea id="comment" style={{fontSize: '12px'}}  className="form-control"
 
                     placeholder="Your account is on Pending, Please add your company Identification number as soon as you can" />
 
