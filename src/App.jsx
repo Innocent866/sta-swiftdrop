@@ -33,8 +33,16 @@ import OtherHistoryPage from "./pages/order-history";
 import FaqPage from "./pages/faq";
 import GeneralSettingPage from "./pages/general-setting";
 import NewDashboardPage from "./pages/dashboard/newdashboard/index";
-import InsidefaqPage from "./pages/faq/insideFaq/index"
-
+import InsidefaqPage from "./pages/faq/insideFaq/index";
+import FoodSellerCustomerPage from "./pages/food-seller-list/foodSellerCustomer";
+import AddEditFoodObjectPage from "./pages/food-seller-list/addEditFoodEdit";
+import ProductPage from "./pages/food-seller-list/product";
+import ProductEditPage from "./pages/food-seller-list/product/productEdit";
+import CouponsPage from "./pages/food-seller-list/coupons";
+import CouponsEditPage from "./pages/food-seller-list/coupons/couponsEdit";
+import ManageWorkDaysPage from "./pages/food-seller-list/manageWorkDays";
+import AllReviewsPage from "./pages/food-seller-list/allReviews";
+import PayoutMethodsPage from "./pages/food-seller-list/payoutMethods/payout-methods";
 export default function App() {
 
   return (
@@ -88,6 +96,48 @@ export default function App() {
             path="/food-seller-list"
             element={<FoodSellerListPage />}
           />
+          <Route exact path="/food-seller-list/:slug" element={<FoodSellerCustomerPage />} />
+          <Route 
+            exact
+            path="/food-seller-list/add-and-edit-food"
+            element={<AddEditFoodObjectPage />}
+          />
+          <Route 
+            exact
+            path="/food-seller-list/product"
+            element={<ProductPage />}
+          />
+          <Route 
+            exact
+            path="/food-seller-list/product/edit"
+            element={<ProductEditPage />}
+          />
+          <Route 
+            exact
+            path="/food-seller-list/coupons"
+            element={<CouponsPage />}
+          />
+          <Route 
+            exact
+            path="/food-seller-list/coupons/edit"
+            element={<CouponsEditPage />}
+          />
+
+          <Route 
+            exact
+            path="/food-seller-list/manage-work-days"
+            element={<ManageWorkDaysPage />}
+          />
+          <Route 
+            exact
+            path="/food-seller-list/all-reviews"
+            element={<AllReviewsPage />}
+          />
+          <Route 
+            exact
+            path="/food-seller-list/payout-methods"
+            element={<PayoutMethodsPage />}
+          />
           <Route 
             exact
             path="/owe-amount"
@@ -120,6 +170,7 @@ export default function App() {
             path="/faq"
             element={<FaqPage />}
           />
+         
           <Route 
             exact
             path="/inside-faq"

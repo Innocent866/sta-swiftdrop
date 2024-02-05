@@ -7,7 +7,7 @@ export default function DashbaordSidebar(props) {
 
         <>
 
-            <div className="sidebar col-md-3 col-lg-2 ">
+            <div className="sidebar col-md-3 col-lg-2 bg-white">
                 <div className="offcanvas-md offcanvas-end h-100" tabIndex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div className="offcanvas-header">
                         
