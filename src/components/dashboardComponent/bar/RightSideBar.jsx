@@ -1,109 +1,56 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import {} from 'react';
 
 const RightSideBar = () => {
   // state logic
-  const [items, setItems] = useState([]);
-  const [orders, setOrders] = useState([]);
-  const [restaurant, setRestaurant] = useState([]);
-  const [allUsers, setAllUsers] = useState([]);
-  const [allDrivers, setAllDrivers] = useState([]);
+  const [sidebarData, setSidebarData] = useState({
+    items: [],
+    orders: [],
+    restaurant: 0,
+    allUsers: [],
+    allDrivers: [],
+  });
 
-  // all items
-  const getAllItems = async () => {
+  const fetchData = useCallback(async () => {
     try {
-      const response = await fetch(
-        'https://swifdropp.onrender.com/api/v1/restaurant/sumFoods'
-      );
+      const [
+        itemsResponse,
+        ordersResponse,
+        restaurantResponse,
+        usersResponse,
+        driversResponse,
+      ] = await Promise.all([
+        fetch('https://swifdropp.onrender.com/api/v1/restaurant/sumFoods'),
+        fetch('https://swifdropp.onrender.com/api/v1/orders/sumOrders/sum'),
+        fetch('https://swifdropp.onrender.com/api/v1/restaurant'),
+        fetch('https://swifdropp.onrender.com/api/v1/user/sumallusers'),
+        fetch('https://swifdropp.onrender.com/api/v1/driver/'),
+      ]);
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch items');
-      }
+      const [itemsData, ordersData, restaurantData, usersData, driversData] =
+        await Promise.all([
+          itemsResponse.json(),
+          ordersResponse.json(),
+          restaurantResponse.json(),
+          usersResponse.json(),
+          driversResponse.json(),
+        ]);
 
-      const data = await response.json();
-      setItems(data);
+      setSidebarData({
+        items: itemsData,
+        orders: ordersData,
+        restaurant: restaurantData.restaurants.length,
+        allUsers: usersData,
+        allDrivers: driversData.drivers.length,
+      });
     } catch (error) {
-      console.error('Error fetching items', error);
+      console.error('Error fetching data', error);
     }
-  };
-
-  useEffect(() => {
-    getAllItems();
   }, []);
 
-  // all orders
-  const getAllOrders = async () => {
-    try {
-      const response = await fetch(
-        'https://swifdropp.onrender.com/api/v1/orders/sumOrders/sum'
-      );
-      const data = await response.json();
-      setOrders(data);
-    } catch (error) {
-      console.error('Error fetching items', error);
-    }
-  };
-
   useEffect(() => {
-    getAllOrders();
-  }, []);
-
-  // all restaurants
-  const getAllRestaurant = async () => {
-    try {
-      const response = await fetch(
-        'https://swifdropp.onrender.com/api/v1/restaurant'
-      );
-      const data = await response.json();
-      if (data && data.restaurants && Array.isArray(data.restaurants)) {
-        setRestaurant(data.restaurants.length);
-      }
-    } catch (error) {
-      console.error('Error fetching items', error);
-    }
-  };
-
-  useEffect(() => {
-    getAllRestaurant();
-  }, []);
-
-  // all users
-  const getAllUsers = async () => {
-    try {
-      const response = await fetch(
-        'https://swifdropp.onrender.com/api/v1/user/sumallusers'
-      );
-      const data = await response.json();
-      console.log(data);
-      setAllUsers(data);
-    } catch (error) {
-      console.error('Error fetching items', error);
-    }
-  };
-
-  useEffect(() => {
-    getAllUsers();
-  }, []);
-
-  // all drivers
-  const getAllDrivers = async () => {
-    try {
-      const response = await fetch(
-        'https://swifdropp.onrender.com/api/v1/driver/'
-      );
-      const data = await response.json();
-      console.log(data);
-      if (data && data.drivers && Array.isArray(data.drivers)) {
-        setAllDrivers(data.drivers.length);
-      }
-    } catch (error) {
-      console.error('Error fetching items', error);
-    }
-  };
-
-  useEffect(() => {
-    getAllDrivers();
-  }, []);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <section style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
@@ -135,10 +82,10 @@ const RightSideBar = () => {
                   />
                 </svg>
               </span>
-              {items && (
+              {sidebarData.items && (
                 <div style={{ marginTop: '10px', gap: '0' }}>
                   <p style={{ fontSize: '25px', fontWeight: 'bold' }}>
-                    {items.sumAvailableFoods}
+                    {sidebarData.items.sumAvailableFoods}
                   </p>
                   <p>Total Items</p>
                 </div>
@@ -238,10 +185,10 @@ const RightSideBar = () => {
               />
             </svg>
           </span>
-          {orders && (
+          {sidebarData.orders && (
             <div style={{ marginTop: '10px' }}>
               <p style={{ fontSize: '25px', fontWeight: 'bold' }}>
-                {orders.sumDeliveredOrders}
+                {sidebarData.orders.sumDeliveredOrders}
               </p>
               <p>Total Orders</p>
             </div>
@@ -283,7 +230,9 @@ const RightSideBar = () => {
         }}
       >
         <div style={{ marginTop: '5px' }}>
-          <p style={{ fontSize: '25px', fontWeight: 'bold' }}>{restaurant}</p>
+          <p style={{ fontSize: '25px', fontWeight: 'bold' }}>
+            {sidebarData.restaurant}
+          </p>
           <p>Total Restaurant</p>
         </div>
         <div
@@ -374,10 +323,10 @@ const RightSideBar = () => {
             </svg>
           </span>
 
-          {allUsers && (
+          {sidebarData.allUsers && (
             <div style={{ marginTop: '10px' }}>
               <p style={{ fontSize: '25px', fontWeight: 'bold' }}>
-                {allUsers.sumVerifiedUsers}
+                {sidebarData.allUsers.sumVerifiedUsers}
               </p>
               <p>Total Users</p>
             </div>
@@ -477,7 +426,9 @@ const RightSideBar = () => {
           </span>
 
           <div style={{ marginTop: '10px' }}>
-            <p style={{ fontSize: '25px', fontWeight: 'bold' }}>{allDrivers}</p>
+            <p style={{ fontSize: '25px', fontWeight: 'bold' }}>
+              {sidebarData.allDrivers}
+            </p>
             <p>Total Drivers</p>
           </div>
         </div>

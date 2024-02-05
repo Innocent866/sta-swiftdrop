@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import RightSideBar from '../dashboardComponent/bar/RightSideBar';
 import GoogleMapComponent from '../dashboardComponent/google/GoogleMapComponent';
+import React from 'react';
 
-export default function DashboardSection() {
+function DashboardSection() {
   return (
     <>
       <div className="height">
@@ -35,6 +36,7 @@ export default function DashboardSection() {
             }}
           >
             <GoogleMapComponent />
+
             <RightSideBar />
           </div>
         </div>
@@ -42,3 +44,4 @@ export default function DashboardSection() {
     </>
   );
 }
+export default React.memo(DashboardSection);
