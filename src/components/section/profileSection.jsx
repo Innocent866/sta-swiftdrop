@@ -78,6 +78,7 @@ export default function ProfileSection() {
                     </div>
                 </div>
             </div>
+            </div>
         </>
 
     )
