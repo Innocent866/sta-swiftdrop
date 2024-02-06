@@ -3,6 +3,7 @@ import FoodSettingComponent from "../foodSettingComponent/hello";
 import Percent from "../foodSettingComponent/percent"
 import Foodmenu from "../foodSettingComponent/foodMenu"
 import AddEdit from "../foodSettingComponent/addEdit"
+import SetMenu from "../foodSettingComponent/SetMenu"
 import Review from "../foodSettingComponent/Review"
 import { Route, Routes} from "react-router-dom"
 export default function SettingSection() {
@@ -30,6 +31,7 @@ export default function SettingSection() {
                         <Route path="AddEdit" element={ <AddEdit/>}/>
                         <Route path="Percent" element={ <Percent/>}/>
                         <Route path="Review" element={ <Review/>}/>
+                        <Route path="SetMenu" element={ <SetMenu/>}/>
                     </Routes>
                     </div>
                     </div>

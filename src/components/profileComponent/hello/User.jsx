@@ -60,46 +60,40 @@ export default function User() {
     localStorage.setItem('profileImage', imagePreviewURL);
   }
 
-  function handleApi() {
+
+
+  const updateInfo = async (event) => {
+    event.preventDefault();
+  
+    // Create a FormData object to hold both the image and other form data
     const formData = new FormData();
     formData.append("image", image);
-
-    axios.put('https://swifdropp.onrender.com/api/v1/company/profile/picture/6581527dc96a438562098fef', formData)
+  
+    // Append other form data to the FormData object
+    Object.entries(tempInfo).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+  
+    axios.put('https://swifdropp.onrender.com/api/v1/company/edit/6581527dc96a438562098fef', formData)
       .then((res) => {
         console.log(res);
-
-        // Assuming the response includes the updated image URL
+        // Assuming the response includes the updated image URL and other data
         const newImageUrl = res.data.imageUrl;
-
-        // Update the state with the new image URL
+        const newData = res.data;
+  
+        // Update the state with the new image URL and other data
         setPreviewImage(newImageUrl);
-
+        setInfo(newData);
+  
         // Store the new image URL in local storage
         localStorage.setItem('profileImage', newImageUrl);
+  
+        navigate('/profile/Account');
       })
       .catch((error) => {
-        console.error('Error uploading image:', error.message);
+        console.error('Error updating information:', error.message);
       });
-  }
-
-
-
-const updateInfo = async (event) => {
-  event.preventDefault();
-  const url = 'https://swifdropp.onrender.com/api/v1/company/edit/6581527dc96a438562098fef';
-  fetch(url, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body:JSON.stringify(tempInfo),
-  })
-  .then((response) => {
-    return response.json()
-  })
-  .then((data) =>{
-    setInfo(data)
-    navigate('/profile/Account')
-  })
-}
+  };
 
   return(
     <>
@@ -108,11 +102,13 @@ const updateInfo = async (event) => {
       
      <div className='use'>
      <div className='' style={{ marginLeft: '10px', marginRight: '10px', marginTop: '60px', marginBottom: 'auto' }}>
-      {previewImage && <img className='imgProfileStyle' src={previewImage || Swif} alt='' />}
-      <input type='file' onChange={handleImage} />
-      <button type='submit' className='user-button' onClick={handleApi}>
-        Submit
-      </button>
+     {previewImage && <img className='imgProfileStyle' src={previewImage} alt='preview' />}
+<input type='file' onChange={handleImage} />
+{!previewImage && (
+  <button type='submit' className='user-button' onClick={updateInfo}>
+    Submit
+  </button>
+)}
     </div>
     {loading ? (
             <div className='d-flex justify-content-center align-items-center' style={{ height: '100vh', marginLeft: '-40px' }}>

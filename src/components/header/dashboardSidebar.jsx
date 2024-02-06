@@ -28,7 +28,7 @@ export default function DashbaordSidebar(props) {
 
 
                             <li className="nav-item mb-2">
-                                <Link to="/profile" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color2}` }} href="./page/profile">
+                                <Link to="/profile/Account" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color2}` }} href="./page/profile">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M2 3.993C2.00381 3.44656 2.44556 3.00436 2.992 3H21.008C21.556 3 22 3.445 22 3.993V20.007C21.9962 20.5534 21.5544 20.9956 21.008 21H2.992C2.44397 20.9994 2 20.555 2 20.007V3.993ZM4 5V19H20V5H4ZM12 7H6V13H12V7ZM8 9V11H10V9H8ZM18 17V15H6V17H18ZM14 7H18V9H14V7ZM18 11H14V13H18V11Z" fill="black" />
                                     </svg>
@@ -86,7 +86,7 @@ export default function DashbaordSidebar(props) {
                                 
                                 <div className="collapse pl-3" id="foodsell-collapse" style={{ paddingLeft: '20px' }}>
                                     <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><Link to="/food-setting" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color6}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
+                                        <li><Link to="/food-setting/SetMenu" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color6}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
                                                 <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
                                             </svg>Settings</Link></li>
                                         <li><Link to="/food-seller-list" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color7}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
