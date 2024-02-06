@@ -5,6 +5,7 @@ const GoogleMapComponent = () => {
   const [map, setMap] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [center, setCenter] = useState(null);
+  const [userLocationMarker, setUserLocationMarker] = useState(null);
 
   const mapStyles = useMemo(
     () => ({
@@ -31,6 +32,9 @@ const GoogleMapComponent = () => {
       ) {
         setRestaurants(availableRestaurants);
       }
+      const interval = setInterval(fetchRestaurants, 60000); // Poll every 1 minute (adjust as needed)
+
+      return () => clearInterval(interval);
     } catch (error) {
       console.error('Error fetching restaurants:', error);
     }
@@ -41,27 +45,34 @@ const GoogleMapComponent = () => {
   }, [fetchRestaurants]);
 
   useEffect(() => {
-    const watchLocation = () => {
+    const getLocation = () => {
       if (navigator.geolocation) {
-        const watchId = navigator.geolocation.watchPosition(
+        navigator.geolocation.getCurrentPosition(
           (position) => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            setCenter({ lat: latitude, lng: longitude });
+            const { latitude, longitude } = position.coords;
+            const userLocation = { lat: latitude, lng: longitude };
+            setCenter(userLocation);
+            // Create a marker for the user's location
+            const marker = new window.google.maps.Marker({
+              position: userLocation,
+              map: map,
+              title: 'Your Location',
+            });
+            setUserLocationMarker(marker); // Save marker reference
             console.log(position);
           },
           (error) => {
             console.error('Error getting current location:', error);
           }
         );
-        return () => navigator.geolocation.clearWatch(watchId);
       } else {
         console.error('Geolocation is not supported by your browser');
       }
     };
 
-    watchLocation();
+    getLocation();
 
+    // You may still want to listen for visibility changes for other purposes
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
@@ -76,11 +87,14 @@ const GoogleMapComponent = () => {
   };
 
   const onLoad = useCallback((map) => {
+    console.log(map);
     setMap(map);
   }, []);
 
   const onMarkerClick = useCallback(
+    // console.log(onMarkerClick);
     (markerPosition) => {
+      // console.log(markerPosition);
       if (map && center) {
         map.panTo(markerPosition);
         map.setZoom(16);
@@ -97,6 +111,8 @@ const GoogleMapComponent = () => {
         center={center}
         onLoad={onLoad}
       >
+        {userLocationMarker && <MemoizedMarker position={center} />}
+
         {restaurants.map((restaurant) => {
           // Check if latitude and longitude are valid numbers
           if (
@@ -120,6 +136,7 @@ const GoogleMapComponent = () => {
               />
             );
           } else {
+            // Handle invalid long and lat
             return null;
           }
         })}
