@@ -128,12 +128,24 @@ export default function AllReviewsComponent() {
                     <div className="col-12 col-xl-8">
                         <div className="card custom-card w-100 mb-3">
                             <div className="card-body position-relative">
-                                <div className="row">                        
-                                    <div className="">                                  
+                                <div className="row between-flex">                        
+                                    <div className="col-md-6">                                  
                                         <p>All Reviews</p>                                  
                                     </div>
-                                    <hr/>
+                                    <div className="col-md-6 float-right">
+                                        <div className="input-group input-flex">
+                                            <input className="form-control bg-white border text-dark rounded-pill" type="text" placeholder="search" id="example-search-input" />
+                                            <span className="input-group-append">
+                                                <button className="btn  ms-n5" type="button">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path fillRule="evenodd" clipRule="evenodd" d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.867 18 18 14.867 18 11C18 7.132 14.867 4 11 4C7.132 4 4 7.132 4 11C4 14.867 7.132 18 11 18ZM22.314 20.899L19.485 18.071L18.071 19.485L20.899 22.314L22.314 20.899Z" fill="black" />
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </div> 
+                                    </div>
                                 </div>
+                                    <hr/>
                                 
                                 <div className="table-responsive">
                                     <table className="table">
@@ -175,7 +187,7 @@ export default function AllReviewsComponent() {
                                             
                                             <td className="col">{data.date}</td>
 
-                                            <td className="col">{data.invoice}</td>
+                                            <td className="col"><a href="#" className="text-primary">{data.invoice}</a></td>
                                             
                                             
                                             </tr>
