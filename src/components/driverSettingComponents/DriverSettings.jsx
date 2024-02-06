@@ -62,7 +62,7 @@ const DriverSettings = () => {
               </h6>
               <hr />
               <Form style={{ width: '300px' }} className="form mx-auto">
-                <Form.Group className="mb-3 ">
+                <Form.Group className="mb-3 " style={{}}>
                   <Form.Label>Title</Form.Label>
                   <Form.Control
                     placeholder="Company Identification Number"
@@ -79,7 +79,7 @@ const DriverSettings = () => {
                   />
                 </Form.Group>
                 <div className="d-flex justify-content-end mt-4">
-                  <button type="submit" className="submit">
+                  <button type="submit" className="submit2">
                     SUBMIT
                   </button>
                 </div>
