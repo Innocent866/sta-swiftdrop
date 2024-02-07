@@ -123,3 +123,30 @@ tr{
     margin-top: 10px;
     border-radius: 7px;
 }
+
+.sidebar{
+    display: flex;
+}
+
+.container{
+     background-color: white; 
+     padding: 30px; 
+     max-width: 350px;
+}
+
+.link {
+    cursor: pointer;
+    
+  }
+  
+  .link_text {
+    font-size: 16px;
+  }
+  
+  /* Active state */
+  .link.active {
+    background-color: #40c4ff; 
+    color: white;
+  }
+  
+  

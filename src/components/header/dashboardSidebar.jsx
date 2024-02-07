@@ -86,7 +86,7 @@ export default function DashbaordSidebar(props) {
                                 
                                 <div className="collapse pl-3" id="foodsell-collapse" style={{ paddingLeft: '20px' }}>
                                     <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><Link to="/food-setting/Foodmenu" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color6}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
+                                        <li><Link to="/food-setting/SetMenu" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color6}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
                                                 <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
                                             </svg>Settings</Link></li>
                                         <li><Link to="/food-seller-list" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color7}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">

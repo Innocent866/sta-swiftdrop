@@ -8,15 +8,12 @@ export default function Review() {
   return(
     <>
       <div className='company-info-container'style={{ width: '930px', height: '95%', right: '20', border: '1px groove'}}>
-        <h3 className='company-info-heading '>Change Password</h3>
+        <h3 className='company-info-heading '>Review Settings</h3>
       
      <div className='flex-container'>
 
 <Form className='custom-form'>
     <div className='custom-row align-items-center'>
-        <div className='custom-form-group group' id='formBasicEmail'>
-            <label >Status</label>
-        </div>
         <div className='custom-form-group group' id='formBasicEmail'>
           <label>Default fee for all resturant</label>
         <InputGroup className="mb-3">
