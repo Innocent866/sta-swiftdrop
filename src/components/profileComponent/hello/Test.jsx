@@ -146,7 +146,9 @@ Account.propTypes = {
 import Form from 'react-bootstrap/Form';
 import "../style/App.css"
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 export default function Account(props) {
+  const navigate  = useNavigate()
   return(
     <>
       <div className="company-info-container"style={{ width: '820px', height: '98%', right: '20', border: '1px groove'}}>
@@ -248,14 +250,25 @@ export default function Account(props) {
                   readOnly
                 />
       </Form.Group>
-     
+      <div style={{display:'flex', justifyContent:'space-between'}}>
       <button
           type="button"
           style={{ width:'200px', height:'45px', backgroundColor:'#4DB6AC', color:'white', borderRadius:'10px' }}
+          onClick={() =>{
+            navigate('/profile/User');
+          }}
         >
-           Save
+           Edit
         </button>
-
+          
+        <button
+          type="button"
+          style={{ width:'200px', height:'45px', backgroundColor:'rgba(255, 0, 0, 0.596)', color:'white', borderRadius:'10px' }} onClick={() =>{
+            navigate('/profile/Forgot');
+          }} >
+           Forgot Password
+        </button>
+        </div>
    </div>
       
     </Form>

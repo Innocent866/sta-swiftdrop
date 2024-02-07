@@ -100,18 +100,13 @@ import { useNavigate } from 'react-router-dom';
       
         return (
           <>
-{ /*       <div style={{ position: 'relative' }}>
-        <p style={{ width: '188px', height: '60px', right: '20', border: '1px groove', backgroundColor:'#3B5998', textAlign:'center', color:'white', cursor:'pointer', borderRadius:'10px', position: 'absolute', top: '-30px', right: '20px', marginTop:'30px', fontSize:'21.9px' }} onClick={()=>{
-               navigate('/driver-list/Menu/Profile');
-            }}>+Add A New Driver</p>*/}
-         
             <div style={{
               width: '880px',
               height: `${tableHeight + 140}px`,
               border: '1px solid #ccc',
               padding: '10px',
               backgroundColor: 'white',
-              marginTop: '70px',
+              marginTop: '5px',
               }}>
                <h5 style={{ display: 'flex', alignItems: 'center' }}>
         <span>Show</span> 
@@ -143,23 +138,23 @@ import { useNavigate } from 'react-router-dom';
                   </tr>
                 </thead>
                 <tbody>
-                  {menuData &&
+                {menuData &&
                     menuData.map((item, index) => (
-                      <tr key={item._id}>
+                      <tr key={item._id} className={!item.isAvailable ? 'unavailableRow' : ''}>
                         <td>{index + 1}</td>
                         <td>
                           <img src={item.image} alt="" style={{ width: '48px', height: '45px', borderRadius: '20px' }} />
                         </td>
                         <td>{item.title}</td>
                         <td>
-                    <Form.Check
-                      type="switch"
-                      id={`custom-switch-${index}`}
-                      defaultChecked={item.isAvailable}
-                      onChange={() => handleToggleAvailability(item._id, item.isAvailable)}
-                      label={item.isAvailable ? 'Available' : 'Unavailable'}
-                    />
-                  </td>
+                          <Form.Check
+                            type="switch"
+                            id={`custom-switch-${index}`}
+                            defaultChecked={item.isAvailable}
+                            onChange={() => handleToggleAvailability(item._id, item.isAvailable)}
+                            label={item.isAvailable ? 'Available' : 'Unavailable'}
+                          />
+                        </td>
                         <td style={{ display: 'flex' }}>
                           <p style={{ cursor: 'pointer', marginTop:'10px' }} onClick={() => handleEditClick(item)}>
                             Edit <Pencil />
@@ -172,7 +167,7 @@ import { useNavigate } from 'react-router-dom';
                     ))}
                 </tbody>
               </Table>
-              <p style={{ width: '213px', height: '60px', right: '20', border: '1px groove', backgroundColor:'darkBlue', fontWeight:'440px', lineHeight:'30px', textAlign:'center', color:'white', cursor:'pointer', borderRadius:'10px', top: '-30px', right: '20px', fontSize:'21.9px' }} onClick={()=>{
+              <p style={{ width: '213px', height: '60px', border: '1px groove', backgroundColor:'darkBlue', fontWeight:'440px', lineHeight:'30px', textAlign:'center', color:'white', cursor:'pointer', borderRadius:'10px', top: '-30px', right: '20px', fontSize:'21.9px' }} onClick={()=>{
                navigate('/food-setting/AddEdit');
             }}>+Add A New Category</p>
             </div>

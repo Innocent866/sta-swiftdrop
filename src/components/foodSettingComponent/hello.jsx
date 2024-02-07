@@ -16,7 +16,7 @@ export default function FoodSettingComponent() {
     return(
         <>
         <div className='menu-container'>
-          <nav className='menu' style={{ width: '400px', height: '200px', border: '1px groove', marginLeft:'-20px', marginTop:'50px'}}>
+          <nav className='menu' style={{ width: '400px', height: '200px', border: '1px groove', marginLeft:'-20px'}}>
             <ul className='menu-top'>
               {Menu.map((menu, index)=>(
                 <li key={index} 

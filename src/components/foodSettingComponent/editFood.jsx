@@ -85,7 +85,7 @@ function EditFood({ show, handleClose, selectedItem, onSaveChanges }) {
             Close
           </Button>
           <Button variant="primary" onClick={handleSaveChanges}>
-            Save Changes
+            Save
           </Button>
         </Modal.Footer>
       </Modal>

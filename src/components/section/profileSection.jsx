@@ -6,49 +6,6 @@ import User from '../../components/profileComponent/hello/User';
 import Payment from '../../components/profileComponent/hello/Payment';
 import Forgot from '../../components/profileComponent/hello/Forgot';
 export default function ProfileSection() {
-  return (
-    <>
-      <div className="height">
-        <div className="breadcrumb-flex">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb  pt-2 rounded-3">
-              <li className="breadcrumb-item">
-                <a href="#" className="text-dark text-decoration-none">
-                  Application
-                </a>
-              </li>
-
-<<<<<<< HEAD
-              <li className="breadcrumb-item active" aria-current="page">
-                <Link
-                  to="/profile/Account"
-                  className="text-decoration-none"
-                  style={{ color: '#F8B602' }}
-                >
-                  Profile
-                </Link>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <div className="flex">
-          <div className="main">
-            <ProfileComponent />
-            <Routes>
-              <Route path="Account" element={<Account />} />
-              <Route path="Password" element={<Password />} />
-              <Route path="User" element={<User />} />
-              <Route path="Payment" element={<Payment />} />
-              <Route path="Forgot" element={<Forgot />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-=======
-    
 
     return (
 
@@ -78,10 +35,8 @@ export default function ProfileSection() {
                     </div>
                 </div>
             </div>
-            </div>
         </>
 
     )
 
 }
->>>>>>> cff3f79b3c309f1e5216c87e2e92cf929fcb6dd9

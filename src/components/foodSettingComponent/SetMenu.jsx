@@ -1,5 +1,5 @@
 import FoodMenu from './foodMenu';
-import EditFood from './editFood'
+import EditFood from './editFood';
 import { useState, useEffect } from 'react';
 
 export default function SetMenu() {
@@ -24,7 +24,7 @@ export default function SetMenu() {
   const handleDataUpdate = (updatedData) => {
     setMenuData(updatedData);
   };
-
+  
   const handleEditClick = (item) => {
     setSelectedItem(item);
     setEditModalShow(true);
@@ -32,10 +32,11 @@ export default function SetMenu() {
 
   return (
     <>
-      {menuData.length > 0 && ( // Add this condition
+      {menuData.length > 0 && (
         <FoodMenu menuData={menuData} onDataUpdate={handleDataUpdate} onEditClick={handleEditClick} />
       )}
       <EditFood show={editModalShow} handleClose={() => setEditModalShow(false)} selectedItem={selectedItem} onSaveChanges={handleDataUpdate} />
+      {/* Pass onDataUpdate to AddEdit */}
     </>
   );
 }
