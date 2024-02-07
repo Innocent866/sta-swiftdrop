@@ -5,6 +5,7 @@ import Account from '../../components/profileComponent/hello/Account';
 import User from '../../components/profileComponent/hello/User';
 import Payment from '../../components/profileComponent/hello/Payment';
 import Forgot from '../../components/profileComponent/hello/Forgot';
+
 export default function ProfileSection() {
   return (
     <>
@@ -19,11 +20,7 @@ export default function ProfileSection() {
               </li>
 
               <li className="breadcrumb-item active" aria-current="page">
-                <Link
-                  to="/profile/Account"
-                  className="text-decoration-none"
-                  style={{ color: '#F8B602' }}
-                >
+                <Link to="/profile/Account" className="text-decoration-none" style={{ color: "#F8B602" }}>
                   Profile
                 </Link>
               </li>

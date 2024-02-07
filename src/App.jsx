@@ -30,6 +30,7 @@ import GeneralSettingPage from './pages/general-setting';
 import NewDashboardPage from './pages/dashboard/newdashboard/index';
 import InsidefaqPage from './pages/faq/insideFaq/index';
 import FoodSellerCustomerPage from './pages/food-seller-list/foodSellerCustomer';
+import EditFoodSellerCustomerPage from './pages/food-seller-list/editFoodListPage/foodSellerCustomer';
 import AddEditFoodObjectPage from './pages/food-seller-list/addEditFoodEdit';
 import ProductPage from './pages/food-seller-list/product';
 import ProductEditPage from './pages/food-seller-list/product/productEdit';
@@ -65,6 +66,11 @@ export default function App() {
             exact
             path="/food-seller-list/:slug"
             element={<FoodSellerCustomerPage />}
+          />
+          <Route
+            exact
+            path="/edit-food-seller-list"
+            element={<EditFoodSellerCustomerPage />}
           />
           <Route
             exact
