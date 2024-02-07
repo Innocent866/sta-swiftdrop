@@ -66,6 +66,7 @@ body{
   padding: 10px 50px;
   border-radius: 4px;
   cursor: pointer;
+   border-style: none;
   transition: background-color 0.3s ease;
 }
 .custom-button-F {
@@ -227,9 +228,12 @@ body{
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 12px;
 }
+.company{
+  width: 500%;
+}
 .input {
   display: block;
-  width: 100%;
+  width: 2000%;
   border: 0;
   padding: 8px;
   resize: none;
@@ -240,8 +244,9 @@ body{
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .text {
-  width: 120%;
+  width: 300px;
   border: 0;
+  height: 45px;
   padding: 8px;
   color: #333333;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
@@ -250,9 +255,29 @@ body{
   resize: none;
 }
 .text12 {
-  width: 100%;
+  width: 250px;
   border: 0;
-  padding: 8px;
+  height: 45px;
+  color: #333333;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  resize: none;
+}
+.text124 {
+  width: 200%;
+  border: 0;
+  height: 45px;
+  color: #333333;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  resize: none;
+}
+.text121 {
+  width: 250px;
+  border: 0;
+  height: 100px;
   color: #333333;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 0.375rem;
@@ -526,7 +551,6 @@ input[type="date"]{
 /*new style*/
 .company-info-container {
   background-color: white;
-  margin-left: 100px;
   margin-top: 20px;
 }
 .company-info-heading {
@@ -742,13 +766,14 @@ input[type="date"]{
 @media screen and (min-width: 992px) {
   .custom-column {
     flex: 0 0 50%;
-    max-width: 50%;
+    max-width: 40%;
+    margin-left: -50px;
   }
 }
 @media screen and (min-width: 992px) {
   .custom-column-40 {
     flex: 0 0 50%;
-    max-width: 50%;
+    max-width: 40%;
     margin-top: -10px;
   }
 }
@@ -756,7 +781,7 @@ input[type="date"]{
   .custom-column-2 {
     flex: 0 0 50%; 
     max-width: 50%; 
-    margin-left: 10px;
+    margin-left: 50px;
   }
 }
 @media screen and (min-width: 992px) {

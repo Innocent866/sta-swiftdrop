@@ -5,29 +5,62 @@ import FoodSellListSidebar from "./foodSellListSidebar";
 
 import { useState } from 'react';
 import Select from 'react-select';
-import CheckboxWithLabel from "./checkboxWithLabel";
-import CheckboxTwoWithLabel from "./checkboxWithLabel";
-
+// Assuming you have a RadioInputWithLabel component
+const RadioInputWithLabel = ({ label, name, value, checked, onChange }) => (
+    <div className="form-check">
+      <input
+        type="radio"
+        id={value}
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={onChange}
+        className="form-check-input"
+      />
+      <label htmlFor={value} className="form-check-label">
+        {label}
+      </label>
+    </div>
+  );
 
 export default function PayoutMethodsComponent() {
-  
-    const discountOptions = [
-      { value: 'Percentage Discount', label: 'Percentage Discount' },
-      
-      
-    ];
-    const TagsOptions = [
-        { value: 'Cake', label: 'Cake' },
-      { value: 'Cupcake', label: 'Cupcake' },
-      { value: 'Home Chef', label: 'Home Chef' },
-      
-    ];
+    const [numberInput, setNumberInput] = useState('');
 
-    const cuisinesOptions = [
-      { value: 'Dessert', label: 'Dessert' },
-      
-      // Add more options as needed
-    ];
+  const handleNumberChange = (e) => {
+    let inputValue = e.target.value;
+
+    // Remove any non-digit characters
+    inputValue = inputValue.replace(/\D/g, '');
+
+    // Limit to 3 digits
+    inputValue = inputValue.slice(0, 3);
+
+    setNumberInput(inputValue);
+  };
+  
+    const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(null);
+
+  // Generate an array of options for the date numbers from 1 to 31
+  const dateOptions = Array.from({ length: 31 }, (_, index) => ({
+    value: (index + 1).toString(),
+    label: (index + 1).toString(),
+  }));
+
+  // Generate an array of options for the years (adjust the range as needed)
+  const currentYear = new Date().getFullYear();
+  const yearOptions = Array.from({ length: 10 }, (_, index) => ({
+    value: (currentYear + index).toString(),
+    label: (currentYear + index).toString(),
+  }));
+
+  const handleDateChange = (selectedOption) => {
+    setSelectedDate(selectedOption);
+  };
+
+  const handleYearChange = (selectedOption) => {
+    setSelectedYear(selectedOption);
+  };
 
     const StatusOptions = [
         { value: 'active', label: 'active' },
@@ -48,23 +81,11 @@ export default function PayoutMethodsComponent() {
     ];
 
     
-
-    const [selectedDiscount, setSelectedDiscount] = useState(null);
-    const [selectedCuisines, setSelectedCuisines] = useState([]);
-    const [selectedTags, setSelectedTags] = useState([]);
     const [selectedAdminStatus, setSelectedAdminStatus] = useState(null);
     const [selectedStatus, setSelectedStatus] = useState(null);
     //const [selectedCountry, setSelectedCountry] = useState(null);
 
-    const handleChange = (selectedOptions) => {
-      setSelectedCuisines(selectedOptions);
-    };
-    const handleDiscountChange = (selectedOption) => {
-      setSelectedDiscount(selectedOption);
-    };
-    const handleTagsChange = (selectedOption) => {
-      setSelectedTags(selectedOption);
-    };
+   
     const handleAdminStatusChange = (selectedOption) => {
         setSelectedAdminStatus(selectedOption);
     };
@@ -72,25 +93,18 @@ export default function PayoutMethodsComponent() {
         setSelectedStatus(selectedOption);
     };
     
-  
-    const [isChecked1, setIsChecked1] = useState(false);
-    const [isChecked2, setIsChecked2] = useState(false);
-  
-    const handleCheckboxChange1 = () => {
-      setIsChecked1(!isChecked1);
-    };
-  
-    const handleCheckboxChange2 = () => {
-      setIsChecked2(!isChecked2);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const handleRadioChange = (e) => {
+        setSelectedOption(e.target.value);
     };
 
-    
-    
-       
+    const [selectedOptionTwo, setSelectedOptionTwo] = useState(null);
+    const handleRadioChangeTwo = (e) => {
+        setSelectedOptionTwo(e.target.value);
+    };
+
     return (
-
         <>
-
             <div>
                    
                 <div className="row">
@@ -106,168 +120,170 @@ export default function PayoutMethodsComponent() {
                         <div className="">
                             
                             <div className="card-body">
-                            
-
-                            {/* inner-card 1 */}
-                            <div className="card inner-card mb-3">
-                                <div className="card-header bg-white">
-                                Add / Edit Coupon
-                                </div>
-                                <div className="card-body">
-                                <div className="row">
-
-
-                                    
-                                    <div className="form-group col-md-12">
-                                    <div className="row">
-
-                                        
-                                        <div className="form-group col-md-12 col-xl-12 mb-2">
-                                        <label htmlFor="typeSelect">Discount Type</label>
-                                        <Select
-                                            value={selectedDiscount}
-                                            onChange={handleDiscountChange}
-                                            options={discountOptions}
-                                            placeholder="Select Discount"
-                                            className="select2-single select2-red"
-                                        />
-                                        </div>
-
-                                        <div className="form-group col-md-12 my-2">
-                                        <label htmlFor="coupon">Coupon Amount
-                                            </label>
-                                        <input type="number" className="form-control" placeholder="0"
-                                            />
-                                        </div>
-
-
-
-                                        <div className="form-group col-md-12 my-2">
-                                        <label htmlFor="coupon_expire">Coupon Expire Date
-                                            </label>
-                                        <input type="date" className="form-control"
-                                            />
-                                        
-                                        </div>
-
-                                        <div className="form-group col-md-12 my-2">
-                                        <label htmlFor="min_spend">Min Spend
-                                            </label>
-                                        <input type="text" className="form-control" placeholder="No Minimum"
-                                            />
-                                        </div>
-
-                                        <div className="form-group col-md-12 my-2">
-                                        <label htmlFor="max_spend">Max Spend
-                                            </label>
-                                        <input type="text" className="form-control" placeholder="No Minimum"
-                                            />
-                                        </div>
-                                        <div className="form-group col-md-12 my-2">
-                                        <CheckboxWithLabel
-                                            label="Check this box if the coupon can not be used in conjunction with other coupons."
-                                            isChecked={isChecked1}
-                                            onChange={handleCheckboxChange1}
-                                        />
-                                        <CheckboxTwoWithLabel
-                                            label="Check this box if the coupon should not apply to items on sale."
-                                            isChecked={isChecked2}
-                                            onChange={handleCheckboxChange2}
-                                        />
-                                        </div>
-
-                                    
-                                    
-
-                                        <div className="form-group col-md-12 mb-2">
-                                        <label htmlFor="Product">
-                                            Product (s)
-                                        </label>
-                                        <Select
-                                            isMulti
-                                            value={selectedTags}
-                                            onChange={handleTagsChange}
-                                            options={TagsOptions}
-                                            placeholder="Select Product"
-                                            className="select2-multiple select2-red"
-                                        />
-                                        </div>
-                                        
-
-                                        <div className="form-group col-md-12 mb-2">
-                                        <label htmlFor="MenuCategory">
-                                        Menu Category(s)
-                                        </label>
-                                        <Select
-                                            isMulti
-                                            value={selectedCuisines}
-                                            onChange={handleChange}
-                                            options={cuisinesOptions}
-                                            placeholder="Select Menu Category"
-                                            className="select2-multiple select2-red"
-                                        />
-                                        </div>
-
-                                        <div className="form-group col-md-12 my-2">
-                                        <label htmlFor="limit_coupon">Usage Limit Per Coupon
-                                            </label>
-                                        <input type="text" className="form-control" placeholder="Unlimited"
-                                            />
-                                        </div>
-
-                                        <div className="form-group col-md-12 my-2">
-                                        <label htmlFor="limit_user">Usage Limit Per User
-                                            </label>
-                                        <input type="text" className="form-control" placeholder="Unlimited"
-                                            />
-                                        </div>
-
-
-
-                                        <div className="form-group col-md-12">
-                                            <label htmlFor="statusSelect">Status</label>
-                                            <Select
-                                                value={selectedStatus}
-                                                onChange={handleStatusChange}
-                                                options={StatusOptions}
-                                                placeholder="Select Status"
-                                                className="select2-single select2-red"
-                                            />
-                                        </div>
-
-                                        
-
-                                    
-
-                                        
+                                {/* inner-card 1 */}
+                                <div className="card inner-card mb-3">
+                                    <div className="card-header bg-white">
+                                    Paypal
                                     </div>
+                                    <div className="card-body">
+                                        <div className="row">
 
-                                    
-                                    
-                                    </div>
 
-                                    
-                                    
-                                </div>
-                                    
-                                <div className="col-md-12 mt-4 pb-3">
-                                    <div className="row">
+                                            
+                                            <div className="form-group col-md-12">
+                                                <div className="row">
+                                                    
+                                                    <div className="form-group col-md-12 my-2">
+                                                        <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center'}}>
+                                                            <label>Set as primary</label>
+                                                            <RadioInputWithLabel
+                                                                label="sales@gmail.com"
+                                                                name="couponOption"
+                                                                value="option1"
+                                                                checked={selectedOption === 'option1'}
+                                                                onChange={handleRadioChange}
+                                                            />
+                                                        </div>
+                                                        <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center', justifyContent: 'ce'}}>
+                                                            <label>Set as primary</label>
+                                                            <RadioInputWithLabel
+                                                                label="paypal@gmail.com"
+                                                                name="couponOption"
+                                                                value="option2"
+                                                                checked={selectedOption === 'option2'}
+                                                                onChange={handleRadioChange}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group col-md-12 my-2">
+                                                        <input type="email" className="form-control" placeholder="Enter Paypal email address"
+                                                            />
+                                                            
+                                                    </div>
+                                                    
+                                                </div>  
+                                            </div>
 
-                                    <div className="form-group col-md-6">
-                                        {/* <button className='btn border-gray col-md-6'>Reset</button> */}
+                                            
+                                            
+                                        </div>
+                                            
+                                        <div className="col-md-12 mt-4 pb-3">
+                                            <div className="row">
+
+                                            <div className="form-group col-md-6">
+                                                <button className='btn btn-primary border-gray col-md-12'><span>+</span>Add a New PayPal Address</button>
+                                            </div>
+                                            <div className="form-group col-md-6">
+                                                    <button className='btn btn-success col-md-6'>Save</button>
+                                            </div>
+                                            </div>
+                                        
+                                        </div>                                
                                     </div>
-                                    <div className="form-group col-md-6 end-flex">
-                                            <button className='btn btn-success col-md-6'>Submit</button>
-                                    </div>
-                                    </div>
-                                
-                                </div>
-                                
                                 </div>
                             </div>
 
-                            
+                            <div className="card-body">
+                                {/* inner-card 1 */}
+                                <div className="card inner-card mb-3">
+                                    <div className="card-header bg-white">
+                                    Credit Card
+                                    </div>
+                                    <div className="card-body">
+                                        <div className="row">
+             
+                                            <div className="form-group col-md-12">
+                                                <div className="row">
+                                                    
+                                                    <div className="form-group col-md-12 my-2">
+                                                        <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center'}}>
+                                                            <label>Set as primary</label>
+                                                            <RadioInputWithLabel
+                                                                label="MasterCard***********5344"
+                                                                name="couponOptionTwo"
+                                                                value="optiona"
+                                                                checked={selectedOptionTwo === 'optiona'}
+                                                                onChange={handleRadioChangeTwo}
+                                                            />
+                                                        </div>
+                                                        <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center', justifyContent: 'ce'}}>
+                                                            <label>Set as primary</label>
+                                                            <RadioInputWithLabel
+                                                                label="Visa********3210"
+                                                                name="couponOptionTwo"
+                                                                value="optionb"
+                                                                checked={selectedOptionTwo === 'optionb'}
+                                                                onChange={handleRadioChangeTwo}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group col-md-12 my-2">
+                                                        <label>Card Number</label>
+                                                        <input type="number" className="form-control" placeholder="Enter Card Number"
+                                                        />
+                                                        
+                                                    </div>
+                                                    <div className="form-group col-md-4 col-sm-12">
+                                                        <label htmlFor="dateSelect">Expire Date/Month</label>
+                                                        <Select
+                                                            value={selectedDate}
+                                                            onChange={handleDateChange}
+                                                            options={dateOptions}
+                                                            placeholder="Select Date"
+                                                            className="select2-single select2-red"
+                                                        />
+                                                    </div>
+                                                    <div className="form-group col-md-4 col-sm-12">
+                                                        <label htmlFor="yearSelect">Expire Year</label>
+                                                        <Select
+                                                        value={selectedYear}
+                                                        onChange={handleYearChange}
+                                                        options={yearOptions}
+                                                        placeholder="Select Year"
+                                                        className="select2-single select2-red"
+                                                        />
+                                                    </div>
+                                                    <div className="form-group col-md-4 col-sm-12">
+                                                        <label htmlFor="numberInput">CW/CVC</label>
+                                                        <input
+                                                            type="number"
+                                                            id="numberInput"
+                                                            className="form-control"
+                                                            value={numberInput}
+                                                            onInput={handleNumberChange}
+                                                            maxLength="3"
+                                                            placeholder="3 digit number"
+                                                        />
+                                                    </div>
+                                                    <div className="form-group col-md-12 my-2">
+                                                        <label>Card Holder Name</label>
+                                                        <input type="text" className="form-control" placeholder="Card Holder Name"
+                                                        />
+                                                        
+                                                    </div>
+                
+                                                </div>  
+                                            </div>
 
+                                            
+                                            
+                                        </div>
+                                            
+                                        <div className="col-md-12 mt-4 pb-3">
+                                            <div className="row">
+
+                                            <div className="form-group col-md-6">
+                                                <button className='btn btn-primary border-gray col-md-12'><span>+</span>Add a New Credit Card</button>
+                                            </div>
+                                            <div className="form-group col-md-6">
+                                                    <button className='btn btn-success col-md-6'>Save</button>
+                                            </div>
+                                            </div>
+                                        
+                                        </div>                                
+                                    </div>
+                                </div>
                             </div>
 
                             {/* White Footer */}

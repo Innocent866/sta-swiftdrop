@@ -103,7 +103,7 @@ const updateInfo = async (event) => {
 
   return(
     <>
-      <div className='user-container'style={{ width: '900px', height: '90%', right: '20', border: '1px groove', marginLeft:'20px'}}>
+      <div className='user-container'style={{width:'500%', height: '496px', right: '20', border: '1px groove', top:'172px', marginLeft:'5px', left:'475px'}}>
         <h3 className='user-title'>Add/Edit Personal Information</h3>
       
      <div className='use'>
@@ -175,7 +175,7 @@ const updateInfo = async (event) => {
               id='address'
               placeholder='address'
               autoComplete='family-name'
-              className='text12'
+              className='text121'
               value={tempInfo.address}
               onChange={(e) => {
                 setTempInfo({...tempInfo, address: e.target.value})
