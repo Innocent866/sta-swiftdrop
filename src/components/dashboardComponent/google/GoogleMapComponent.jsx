@@ -21,7 +21,6 @@ const GoogleMapComponent = () => {
         'https://swifdropp.onrender.com/api/v1/restaurant'
       );
       const data = await response.json();
-      console.log(data);
       const availableRestaurants = data.restaurants.filter(
         (restaurant) => restaurant.isAvailable
       );
@@ -36,7 +35,7 @@ const GoogleMapComponent = () => {
 
       return () => clearInterval(interval);
     } catch (error) {
-      console.error('Error fetching restaurants:', error);
+      // console.error('Error fetching restaurants:', error);
     }
   }, [restaurants]);
 
@@ -59,7 +58,7 @@ const GoogleMapComponent = () => {
               title: 'Your Location',
             });
             setUserLocationMarker(marker); // Save marker reference
-            console.log(position);
+            // console.log(position);
           },
           (error) => {
             console.error('Error getting current location:', error);
@@ -87,7 +86,7 @@ const GoogleMapComponent = () => {
   };
 
   const onLoad = useCallback((map) => {
-    console.log(map);
+    // console.log(map);
     setMap(map);
   }, []);
 
