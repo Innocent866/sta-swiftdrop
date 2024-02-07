@@ -1,7 +1,7 @@
-
 import { Link } from 'react-router-dom';
-import DriverSettingComponent from '../driverSettingComponents/DriverSettings';
 import ManageRegion from '../driverSettingComponents/tab3/ManageRegion';
+import DriverSettings from '../driverSettingComponents/DriverSettings';
+import Render from '../driverSettingComponents/render';
 
 export default function DriverSettingSection() {
   return (
@@ -34,7 +34,8 @@ export default function DriverSettingSection() {
         </div>
 
         <div className="py-2">
-          <DriverSettingComponent />
+          <DriverSettings />
+          {/* <Render /> */}
         </div>
       </div>
     </>
