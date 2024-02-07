@@ -8,13 +8,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 
 export default function FoodSellListComponent() {
-  const [query, setQuery] = useState('');
-  const [perPage, setPerPage] = useState(10);
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1); // Assuming there is at least one page by default
-
   useEffect(() => {
     fetchData();
   }, [currentPage, perPage]);
@@ -52,51 +47,10 @@ export default function FoodSellListComponent() {
     // Implement your delete logic here
     console.log(`Deleting data with id: ${id}`);
   };
-
-  const getStatusClass = (approved) => {
-    return approved ? 'success' : 'danger'; // 'success' for active, 'warning' for pending/suspended
-  };
-  
   const getStatusStyle = (approved) => {
     const textColor = approved ? '#28a745' : 'red'; // Text color based on status
     return { borderColor: textColor, color: textColor };
-  };
-
-  const renderPagination = () => {
-    if (totalPages <= 1) {
-      return null;
-    }
-
-    const pages = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(
-        <li key={i} className={`page-item ${i === currentPage ? 'active' : ''}`}>
-          <button className="page-link" onClick={() => setCurrentPage(i)}>
-            {i}
-          </button>
-        </li>
-      );
-    }
-
-    return (
-      <nav aria-label="Page navigation">
-        <ul className="pagination">
-          <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-            <button className="page-link" onClick={() => setCurrentPage(currentPage - 1)}>
-              Previous
-            </button>
-          </li>
-          {pages}
-          <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-            <button className="page-link" onClick={() => setCurrentPage(currentPage + 1)}>
-              Next
-            </button>
-          </li>
-        </ul>
-      </nav>
-    );
-  };
-
+  }; 
   return (
     <>
       <div>
