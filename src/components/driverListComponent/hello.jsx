@@ -20,7 +20,7 @@ export default function DriverListComponent() {
 
         <>
          <div style={{ position: 'relative' }}>
-        <p style={{ width: '188px', height: '60px', right: '20', border: '1px groove', backgroundColor:'#3B5998', textAlign:'center', color:'white', cursor:'pointer', borderRadius:'10px', position: 'absolute', top: '-30px', right: '20px', marginTop:'30px', fontSize:'21.9px' }} onClick={()=>{
+        <p style={{ width: '188px', height: '60px', border: '1px groove', backgroundColor:'#3B5998', textAlign:'center', color:'white', cursor:'pointer', borderRadius:'10px', position: 'absolute', top: '-30px', right: '20px', marginTop:'30px', fontSize:'21.9px' }} onClick={()=>{
                navigate('/driver-list/Menu/Profile');
             }}>+Add A New Driver</p>
          

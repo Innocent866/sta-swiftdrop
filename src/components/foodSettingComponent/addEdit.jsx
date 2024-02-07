@@ -58,7 +58,7 @@ export default function AddEdit({ onDataUpdate }) {
           <img
             id="previewImage"
             className="imgProfileStyles"
-            src="http://bootdey.com/img/Content/avatar/avatar1.png"
+            src="Image"
             alt="Image"
           />
             <input
