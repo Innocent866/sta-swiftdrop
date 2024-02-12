@@ -296,7 +296,7 @@ body{
   resize: none;
 }
 .text-5 {
-  width: 150%;
+  width: 130%;
   margin-left: -40px;
   border: 0;
   padding: 8px;
@@ -326,6 +326,9 @@ body{
 .sig-3{
   margin-top: 20px;
   margin-left: 50px;
+}
+.margin{
+  margin-top: -20px;
 }
 .sig-33{
   margin-top: 20px;
@@ -371,6 +374,10 @@ body{
 .prof{
   margin-left: 100px;
 }
+.profsec{
+  margin-left: 100px;
+  margin-top: 20px;
+}
 .texts-6 {
   width: 280px;
   height: 318px;
@@ -401,21 +408,7 @@ body{
   margin-bottom: 1rem;
   resize: none;
 }
-.texts-67 {
-  width: 300px;
-  height: 290px;
-  top: 240px;
-  left: 500px;
-  border: 0;
-  margin-left: 100px;
-  border-style: solid;
-  padding: 8px;
-  color: #333333;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-  border-radius: 0.375rem;
-  margin-bottom: 1rem;
-  resize: none;
-}
+
 
 .texts-69 {
   width: 400px;
@@ -501,11 +494,10 @@ body{
    Width:171px;
    Height:45px;
    Top:1336px;
-   Left:500px;
+   Left:900px;
    margin-top: 30px;
    background-color: white;
     font-weight:550;
-    margin-left: -40px;
     border-radius: 10px;
 }
 .profib{
@@ -515,9 +507,21 @@ body{
   Left:500px;
   background-color: #009688;
   color: white;
-  margin-top: -20px;
   font-weight:550;
-  margin-left: 30px;
+  margin-left: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+.profibs{
+  Width:171px;
+  Height:45px;
+  Top:1336px;
+  Left:500px;
+  background-color: #009688;
+  color: white;
+  font-weight:550;
+  margin-left: 20px;
+  margin-top: 10px;
   border-radius: 10px;
 }
 .custom-button-pro {
@@ -897,6 +901,17 @@ input[type="date"]{
   transition: background-color 0.3s ease; 
   border-radius: 0.375rem; 
   margin-top: 20px;
+}
+.menu-link-drive {
+  font-weight: 500; 
+  color: #000;
+  display: flex; 
+  gap: 0.625rem; 
+  cursor: pointer;
+  padding: 0.5rem;
+  padding-left: 0.625rem;
+  transition: background-color 0.3s ease; 
+  border-radius: 0.375rem; 
 }
 
 .menu-link:hover {

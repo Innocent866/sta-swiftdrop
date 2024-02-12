@@ -172,19 +172,21 @@ export default function Profiles() {
               className='text-5'
             />
           </div>
+          <div style={{display:'flex', justifyContent:'space-between'}}>
           <button className='profi'>Cancel</button>
           <button className='profib'>Save</button>
+          </div>
         </div>
         <div className='custom-column-23 '>
-            <label htmlFor='city' className='prof'>Signature</label>
-            <div className='texts-67'>
+            <h2 htmlFor='city' className='prof'>Signature</h2>
+            <div className='margin'>
               <img src={Id} className='sig-3'/>
               <button className='custom-button-pro'>
         Change Signature
       </button>
           </div>
-          <label htmlFor='city' className='prof'>Signature</label>
-            <div className='texts-67'>
+          <h2 htmlFor='city' className='profsec'>Signature</h2>
+            <div className='margin'>
               <img src={Id} className='sig-3'/>
               <button className='custom-button-pro'>
         Change Signature
