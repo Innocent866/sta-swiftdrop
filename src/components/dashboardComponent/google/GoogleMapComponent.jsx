@@ -25,18 +25,15 @@ const GoogleMapComponent = () => {
         (restaurant) => restaurant.isAvailable
       );
 
-      // Only update restaurants state if it has changed
       if (
         JSON.stringify(availableRestaurants) !== JSON.stringify(restaurants)
       ) {
         setRestaurants(availableRestaurants);
       }
-      const interval = setInterval(fetchRestaurants, 60000); // Poll every 1 minute (adjust as needed)
+      const interval = setInterval(fetchRestaurants, 60000);
 
       return () => clearInterval(interval);
-    } catch (error) {
-      // console.error('Error fetching restaurants:', error);
-    }
+    } catch (error) {}
   }, [restaurants]);
 
   useEffect(() => {
@@ -51,14 +48,13 @@ const GoogleMapComponent = () => {
             const { latitude, longitude } = position.coords;
             const userLocation = { lat: latitude, lng: longitude };
             setCenter(userLocation);
-            // Create a marker for the user's location
+
             const marker = new window.google.maps.Marker({
               position: userLocation,
               map: map,
               title: 'Your Location',
             });
-            setUserLocationMarker(marker); // Save marker reference
-            // console.log(position);
+            setUserLocationMarker(marker);
           },
           (error) => {
             console.error('Error getting current location:', error);
@@ -71,7 +67,6 @@ const GoogleMapComponent = () => {
 
     getLocation();
 
-    // You may still want to listen for visibility changes for other purposes
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
@@ -86,14 +81,11 @@ const GoogleMapComponent = () => {
   };
 
   const onLoad = useCallback((map) => {
-    // console.log(map);
     setMap(map);
   }, []);
 
   const onMarkerClick = useCallback(
-    // console.log(onMarkerClick);
     (markerPosition) => {
-      // console.log(markerPosition);
       if (map && center) {
         map.panTo(markerPosition);
         map.setZoom(16);
@@ -113,8 +105,9 @@ const GoogleMapComponent = () => {
         {userLocationMarker && <MemoizedMarker position={center} />}
 
         {restaurants.map((restaurant) => {
-          // Check if latitude and longitude are valid numbers
+          // Check if coordinates exist and are valid numbers
           if (
+            restaurant.coordinates &&
             typeof restaurant.coordinates.latitude === 'number' &&
             typeof restaurant.coordinates.longitude === 'number'
           ) {
@@ -135,7 +128,7 @@ const GoogleMapComponent = () => {
               />
             );
           } else {
-            // Handle invalid long and lat
+            // Handle invalid coordinate
             return null;
           }
         })}
