@@ -24,13 +24,12 @@ function EditFood({ show, handleClose, selectedItem, onSaveChanges }) {
         body: JSON.stringify({
           title: editedTitle,
           image: editedImage,
-          // Add other fields as needed
         }),
       });
   
       if (response.ok) {
         const updatedData = await response.json();
-        onSaveChanges(updatedData); // Notify the parent component about the data update
+        onSaveChanges(updatedData); // Update the menu data in the parent component
         handleClose(); // Close the modal
       } else {
         console.error('Error updating data:', response.statusText);

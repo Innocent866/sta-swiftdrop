@@ -8,10 +8,11 @@ export default function SetMenu() {
   const [loading, setLoading] = useState(true); // Add loading state
   const [editModalShow, setEditModalShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [forceUpdate, setForceUpdate] = useState(false); // State to force re-render
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [forceUpdate]); // Listen for changes in forceUpdate
 
   const fetchData = async () => {
     try {
@@ -26,6 +27,7 @@ export default function SetMenu() {
 
   const handleDataUpdate = (updatedData) => {
     setMenuData(updatedData);
+    setForceUpdate(!forceUpdate); // Toggle forceUpdate to force re-render
   };
   
   const handleEditClick = (item) => {
@@ -45,7 +47,7 @@ export default function SetMenu() {
             <FoodMenu menuData={menuData} onDataUpdate={handleDataUpdate} onEditClick={handleEditClick} />
           )}
           <EditFood show={editModalShow} handleClose={() => setEditModalShow(false)} selectedItem={selectedItem} onSaveChanges={handleDataUpdate} />
-          {/* Pass onDataUpdate to AddEdit */}
+          {/* Pass onDataUpdate to EditFood */}
         </>
       )}
     </>
