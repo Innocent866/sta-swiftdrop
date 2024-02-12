@@ -49,7 +49,7 @@ export default function menu() {
         <ul className='menu-top'>
           {Menu.map((menu, index)=>(
             <li key={index} 
-            className={'menu-link'}>
+            className={'menu-link-drive'}>
                <Link to={menu.href} className="menu-style" style={{textDecoration:'none'}}>
                {menu.icon}
                {menu.title}
@@ -88,7 +88,7 @@ export default function menu() {
               className='text-59'
             />
           </div>
-          <button className='profib'>Save</button>
+          <button className='profibs'>Save</button>
         </div>
       </div>
     </Form>
