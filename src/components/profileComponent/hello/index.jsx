@@ -26,14 +26,16 @@ import {
                 src={Swif}
                 alt=""
               />
-              <div className=''>
+            
               <h4 className="menu-text-1">Phantom Sam</h4>
-              <span className="menu-text-2">Manager</span>
-              </div>
+              <div className='' style={{display:'flex', justifyContent:'space-between', marginLeft:'80px'}}>
+             
+              
               <ul className="flex-1 px-3"></ul>
               <div className="menu-flex-container">
                 <div>
                   <MoreHorizontal size={20}/>
+                  </div>
                 </div>
               </div>
           </div>
