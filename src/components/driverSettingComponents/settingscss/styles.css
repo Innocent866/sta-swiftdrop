@@ -1,6 +1,6 @@
 .tab{
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
 }
 
 .lefttab{
@@ -33,20 +33,11 @@ padding-bottom: 70px;
 .submit{
     all: unset;
     background-color: #4db6ac;
-    padding: 10px 40px;
-    font-size: 14px;
+    padding: 10px 60px;
     border-radius: 8px;
     color: white;
 }
 
-.submit2{
-    all: unset;
-    background-color: #3b5998;
-    padding: 10px 40px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: white;
-}
 
 .btn-pills{
 background-color: #40c4ff;
@@ -77,8 +68,7 @@ background-color: #40c4ff;
 }
 
 .text{
-    font-size: 12px;
-    width: 100%;
+    font-size: 13px;
 }
 
 .drop-down{
@@ -94,7 +84,6 @@ background-color: #40c4ff;
     color: white;
     border-radius: 7px;
     background-color: #f8b602;
-    font-size: 14px;
 }
 
 .heading{
@@ -123,30 +112,3 @@ tr{
     margin-top: 10px;
     border-radius: 7px;
 }
-
-.sidebar{
-    display: flex;
-}
-
-.container{
-     background-color: white; 
-     padding: 30px; 
-     max-width: 350px;
-}
-
-.link {
-    cursor: pointer;
-    
-  }
-  
-  .link_text {
-    font-size: 16px;
-  }
-  
-  /* Active state */
-  .link.active {
-    background-color: #40c4ff; 
-    color: white;
-  }
-  
-  

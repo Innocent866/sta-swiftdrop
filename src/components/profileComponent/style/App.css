@@ -3,7 +3,7 @@ body{
   background-color: #D8D8D8;
 }
 .active{
-  /* background-color: blue; */
+  background-color: blue;
   color: white;
 }
 .custom-form {
@@ -66,7 +66,6 @@ body{
   padding: 10px 50px;
   border-radius: 4px;
   cursor: pointer;
-   border-style: none;
   transition: background-color 0.3s ease;
 }
 .custom-button-F {
@@ -228,12 +227,9 @@ body{
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 12px;
 }
-.company{
-  width: 500%;
-}
 .input {
   display: block;
-  width: 2000%;
+  width: 100%;
   border: 0;
   padding: 8px;
   resize: none;
@@ -243,21 +239,9 @@ body{
   outline: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.text-user {
-  width: 250px;
-  border: 0;
-  height: 45px;
-  padding: 8px;
-  color: #333333;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-  border-radius: 0.375rem;
-  margin-bottom: 1rem;
-  resize: none;
-}
 .text {
-  width: 300px;
+  width: 120%;
   border: 0;
-  height: 45px;
   padding: 8px;
   color: #333333;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
@@ -266,29 +250,9 @@ body{
   resize: none;
 }
 .text12 {
-  width: 240px;
+  width: 100%;
   border: 0;
-  height: 45px;
-  color: #333333;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-  border-radius: 0.375rem;
-  margin-bottom: 1rem;
-  resize: none;
-}
-.text124 {
-  width: 200%;
-  border: 0;
-  height: 45px;
-  color: #333333;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-  border-radius: 0.375rem;
-  margin-bottom: 1rem;
-  resize: none;
-}
-.text121 {
-  width: 250px;
-  border: 0;
-  height: 100px;
+  padding: 8px;
   color: #333333;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 0.375rem;
@@ -296,8 +260,8 @@ body{
   resize: none;
 }
 .text-5 {
-  width: 150%;
-  margin-left: -40px;
+  width: 120%;
+  margin-left: -20px;
   border: 0;
   padding: 8px;
   color: #333333;
@@ -325,7 +289,7 @@ body{
 }
 .sig-3{
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .sig-33{
   margin-top: 20px;
@@ -523,7 +487,7 @@ body{
 .custom-button-pro {
   display: block;
   margin: auto;
-  width: 80%;
+  width: 100%;
   margin-top: 30px;
   background-color: #009688;
   color: #ffffff;
@@ -562,6 +526,7 @@ input[type="date"]{
 /*new style*/
 .company-info-container {
   background-color: white;
+  margin-left: 100px;
   margin-top: 20px;
 }
 .company-info-heading {
@@ -592,6 +557,9 @@ input[type="date"]{
   display: flex;
   justify-content: space-between;
 }
+.button-container-20 {
+  display: flex;
+}
 .custom-submit {
   margin: 0 auto;
   margin-top: 6px;
@@ -599,18 +567,31 @@ input[type="date"]{
   background-color: #3490dc; 
   color: #ffffff; 
   font-weight: bold;
-  border-radius: 0.25rem;
+  border-radius:5px;
   cursor: pointer;
 }
+.custom-submit-G {
+   Width:171px;
+   Height:45px;
+   Top:1336px;
+   Left:500px;
+   margin-top: 30px;
+   background-color: white;
+    font-weight:550;
+    margin-left: -6px;
+    border-radius: 10px;
+}
 .custom-submit-F {
-  margin-left: 5px;
-  margin-top: 6px;
-  padding: 2px 30px;
-  background-color: rgba(255, 0, 0, 0.596);
-  color: #ffffff; 
-  font-weight: bold;
+   Width:171px;
+  Height:45px;
+  Top:1336px;
+  Left:500px;
+  background-color: #009688;
+  color: white;
+  margin-top: 30px;
+  font-weight:550;
+  margin-left: 30px;
   border-radius: 10px;
-  cursor: pointer;
 }
 .custom-submit-2 {
   display: block;
@@ -713,24 +694,10 @@ input[type="date"]{
   margin-top: 3px;
   margin-left: 20px;
 }
-.unavailableRow td {
-  background-color: #ccc;
-}
 .imgProfileStyle {
   height: 180px; 
   margin-left: 20px;
   margin-right: auto;
-  margin-bottom: 2px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-}
-.imgProfileStyles {
-  width: 120px;
-  height: 130px; 
-  margin-left: 20px;
-  margin-right: auto;
-  border-radius: 70px;
   margin-bottom: 2px; 
   display: flex; 
   align-items: center; 
@@ -783,11 +750,6 @@ input[type="date"]{
   align-items: center; 
   margin-right: 60px;
 }
-.user-row-add {
-  display: flex; 
-  align-items: center; 
-  margin-right: 20px;
-}
 .user-row-9 {
   display: flex; 
   align-items: center; 
@@ -796,38 +758,28 @@ input[type="date"]{
 @media screen and (min-width: 992px) {
   .custom-column {
     flex: 0 0 50%;
-    max-width: 40%;
-    margin-left: -10px;
-  }
-}
-@media screen and (min-width: 992px) {
-  .custom-column-p {
-    flex: 0 0 50%;
-    max-width: 40%;
-    margin-left: 30px;
+    max-width: 50%;
   }
 }
 @media screen and (min-width: 992px) {
   .custom-column-40 {
     flex: 0 0 50%;
-    max-width: 40%;
+    max-width: 50%;
     margin-top: -10px;
-    
   }
 }
 @media screen and (min-width: 992px) {
   .custom-column-2 {
     flex: 0 0 50%; 
     max-width: 50%; 
-    margin-left: 40px;
-    margin-right: auto;
+    margin-left: 10px;
   }
 }
 @media screen and (min-width: 992px) {
   .custom-column-23 {
     flex: 0 0 50%; 
     max-width: 50%; 
-    margin-left: 50px;
+    margin-left: 10px;
     margin-top: -10px;
   }
 }
@@ -896,7 +848,6 @@ input[type="date"]{
   padding-left: 0.625rem;
   transition: background-color 0.3s ease; 
   border-radius: 0.375rem; 
-  margin-top: 20px;
 }
 
 .menu-link:hover {

@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import { Outlet, Link } from "react-router-dom";
 import { MobileView } from 'react-device-detect';
+import Logout from "./Logout";
 export default function DashbaordSidebar(props) {
 
     return (
 
         <>
 
-            <div className="sidebar col-md-3 col-lg-2 bg-white">
+            <div className="sidebar col-md-3 col-lg-2 ">
                 <div className="offcanvas-md offcanvas-end h-100" tabIndex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div className="offcanvas-header">
                         
@@ -18,7 +19,7 @@ export default function DashbaordSidebar(props) {
                         <ul className="nav flex-column">
 
                             <li className="nav-item mb-2">
-                                <Link to="/" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color1}` }}>
+                                <Link to="/MainDashboard" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color1}` }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M11.3572 0.543C11.6898 0.514 12.0255 0.5 12.3651 0.5C18.7665 0.5 23.9564 5.649 23.9564 12C23.9564 12.337 23.9423 12.67 23.9131 13H22.3951C21.8891 18.053 17.5913 22 12.3651 22C6.7983 22 2.28577 17.523 2.28577 12C2.28577 6.815 6.26409 2.551 11.3572 2.05V0.543ZM11.3572 13V4.062C7.13726 4.59472 4.06007 8.28785 4.32646 12.5C4.59284 16.7122 8.11118 19.9948 12.3651 20C16.4289 19.9999 19.8577 17.0001 20.3661 13H11.3572ZM13.3731 2.552C17.8638 3.02442 21.4119 6.54461 21.8881 11H13.3731V2.552Z" fill="black" />
                                     </svg>
@@ -28,7 +29,7 @@ export default function DashbaordSidebar(props) {
 
 
                             <li className="nav-item mb-2">
-                                <Link to="/profile/Account" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color2}` }} href="./page/profile">
+                                <Link to="/profile" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color2}` }} href="./page/profile">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M2 3.993C2.00381 3.44656 2.44556 3.00436 2.992 3H21.008C21.556 3 22 3.445 22 3.993V20.007C21.9962 20.5534 21.5544 20.9956 21.008 21H2.992C2.44397 20.9994 2 20.555 2 20.007V3.993ZM4 5V19H20V5H4ZM12 7H6V13H12V7ZM8 9V11H10V9H8ZM18 17V15H6V17H18ZM14 7H18V9H14V7ZM18 11H14V13H18V11Z" fill="black" />
                                     </svg>
@@ -86,7 +87,7 @@ export default function DashbaordSidebar(props) {
                                 
                                 <div className="collapse pl-3" id="foodsell-collapse" style={{ paddingLeft: '20px' }}>
                                     <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><Link to="/food-setting/SetMenu" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color6}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
+                                        <li><Link to="/food-setting" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color6}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
                                                 <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
                                             </svg>Settings</Link></li>
                                         <li><Link to="/food-seller-list" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color7}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
@@ -162,7 +163,7 @@ export default function DashbaordSidebar(props) {
 
                         </ul>
 
-
+                       <Logout/>
                         
 
                         <MobileView>

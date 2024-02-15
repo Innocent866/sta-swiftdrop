@@ -1,148 +1,114 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { GoogleMap, Marker } from '@react-google-maps/api';
+import React, { useState, useEffect } from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const GoogleMapComponent = () => {
   const [map, setMap] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [center, setCenter] = useState(null);
-  const [userLocationMarker, setUserLocationMarker] = useState(null);
 
-  const mapStyles = useMemo(
-    () => ({
-      height: '900px',
-      width: '100%',
-    }),
-    []
-  );
+  const mapStyles = {
+    height: '900px',
+    width: '100%',
+  };
 
-  const fetchRestaurants = useCallback(async () => {
-    try {
-      const response = await fetch(
-        'https://swifdropp.onrender.com/api/v1/restaurant'
-      );
-      const data = await response.json();
-      const availableRestaurants = data.restaurants.filter(
-        (restaurant) => restaurant.isAvailable
-      );
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch(
+          'https://swifdropp.onrender.com/api/v1/restaurant'
+        );
+        const data = await response.json();
+        console.log(data);
+        const availableRestaurants = data.restaurants.filter(
+          (restaurant) => restaurant.isAvailable
+        );
 
-      // Only update restaurants state if it has changed
-      if (
-        JSON.stringify(availableRestaurants) !== JSON.stringify(restaurants)
-      ) {
         setRestaurants(availableRestaurants);
+      } catch (error) {
+        console.error('Error fetching restaurants:', error);
       }
-      const interval = setInterval(fetchRestaurants, 60000); // Poll every 1 minute (adjust as needed)
+    };
 
-      return () => clearInterval(interval);
-    } catch (error) {
-      // console.error('Error fetching restaurants:', error);
-    }
-  }, [restaurants]);
-
-  useEffect(() => {
     fetchRestaurants();
-  }, [fetchRestaurants]);
+  }, []);
 
   useEffect(() => {
-    const getLocation = () => {
+    const watchLocation = () => {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
+        const watchId = navigator.geolocation.watchPosition(
           (position) => {
-            const { latitude, longitude } = position.coords;
-            const userLocation = { lat: latitude, lng: longitude };
-            setCenter(userLocation);
-            // Create a marker for the user's location
-            const marker = new window.google.maps.Marker({
-              position: userLocation,
-              map: map,
-              title: 'Your Location',
-            });
-            setUserLocationMarker(marker); // Save marker reference
-            // console.log(position);
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            setCenter({ lat: latitude, lng: longitude });
           },
           (error) => {
             console.error('Error getting current location:', error);
           }
         );
+        return () => navigator.geolocation.clearWatch(watchId);
       } else {
         console.error('Geolocation is not supported by your browser');
       }
     };
 
-    getLocation();
-
-    // You may still want to listen for visibility changes for other purposes
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
+    watchLocation();
   }, []);
 
-  const handleVisibilityChange = () => {
-    if (document.visibilityState === 'visible') {
-      fetchRestaurants();
+  const onLoad = (map) => {
+    setMap(map);
+  };
+
+  const onMarkerClick = (markerPosition) => {
+    if (map && center) {
+      map.panTo(markerPosition);
+      map.setZoom(16);
     }
   };
 
-  const onLoad = useCallback((map) => {
-    // console.log(map);
-    setMap(map);
-  }, []);
-
-  const onMarkerClick = useCallback(
-    // console.log(onMarkerClick);
-    (markerPosition) => {
-      // console.log(markerPosition);
-      if (map && center) {
-        map.panTo(markerPosition);
-        map.setZoom(16);
-      }
-    },
-    [map, center]
-  );
-
+  const apiKey = 'AIzaSyDE83Koe2R_WZ1oOAt5SDicYKUBcBFLwy0';
   return (
     <div style={{ width: '700px' }}>
-      <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={12}
-        center={center}
-        onLoad={onLoad}
-      >
-        {userLocationMarker && <MemoizedMarker position={center} />}
-
-        {restaurants.map((restaurant) => {
-          // Check if latitude and longitude are valid numbers
-          if (
-            typeof restaurant.coordinates.latitude === 'number' &&
-            typeof restaurant.coordinates.longitude === 'number'
-          ) {
-            return (
-              <Marker
-                key={restaurant._id}
-                position={{
-                  lat: restaurant.coordinates.latitude,
-                  lng: restaurant.coordinates.longitude,
-                }}
-                title={restaurant.restaurantName}
-                onClick={() =>
-                  onMarkerClick({
+      <LoadScript googleMapsApiKey={apiKey}>
+        <GoogleMap
+          mapContainerStyle={mapStyles}
+          zoom={12}
+          center={center}
+          onLoad={onLoad}
+        >
+          {restaurants.map((restaurant) => {
+            // Check if latitude and longitude are valid numbers
+            if (
+              typeof restaurant.coordinates.latitude === 'number' &&
+              typeof restaurant.coordinates.longitude === 'number'
+            ) {
+              return (
+                <Marker
+                  key={restaurant._id}
+                  position={{
                     lat: restaurant.coordinates.latitude,
                     lng: restaurant.coordinates.longitude,
-                  })
-                }
-              />
-            );
-          } else {
-            // Handle invalid long and lat
-            return null;
-          }
-        })}
-      </GoogleMap>
+                  }}
+                  title={restaurant.restaurantName}
+                  onClick={() =>
+                    onMarkerClick({
+                      lat: restaurant.coordinates.latitude,
+                      lng: restaurant.coordinates.longitude,
+                    })
+                  }
+                />
+              );
+            } else {
+              // Handle invalid long and lat
+              console.warn(
+                `Invalid coordinates for restaurant ${restaurant._id}`
+              );
+              return null;
+            }
+          })}
+        </GoogleMap>
+      </LoadScript>
     </div>
   );
 };
 
-const MemoizedMarker = React.memo(Marker);
 export default GoogleMapComponent;

@@ -11,7 +11,7 @@ export default function Profiles() {
         <h5 className='user-title'>Driver's info, image & Signature</h5>
       
      <div className='use'>
-      <div className=''style={{marginLeft:'20px', marginRight:'30px', marginTop:'60px', marginBottom:'auto'}}>
+      <div className=''style={{marginLeft:'30px', marginRight:'30px', marginTop:'60px', marginBottom:'auto'}}>
         
       <img
               className=" imgProfileStyle"
@@ -27,7 +27,7 @@ export default function Profiles() {
       </div>
       <Form className=' form-user'>
 <div className='user-row'>
-        <div className='custom-column-p'>
+        <div className='custom-column'>
           <div className='lines'>
             <label htmlFor='name'>User Name</label>
             <input

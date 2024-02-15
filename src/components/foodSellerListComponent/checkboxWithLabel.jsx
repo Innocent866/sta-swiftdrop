@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+import React from 'react';
+
 const CheckboxWithLabel = ({ label, isChecked, onChange }) => {
   return (
     <label style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
