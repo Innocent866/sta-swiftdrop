@@ -5,21 +5,21 @@ import { useState, useEffect } from 'react';
 
 export default function SetMenu() {
   const [menuData, setMenuData] = useState([]);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true); 
   const [editModalShow, setEditModalShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [forceUpdate, setForceUpdate] = useState(false); // State to force re-render
+  const [forceUpdate, setForceUpdate] = useState(false);
 
   useEffect(() => {
     fetchData();
-  }, [forceUpdate]); // Listen for changes in forceUpdate
+  }, [forceUpdate]); 
 
   const fetchData = async () => {
     try {
       const response = await fetch('https://swifdropp.onrender.com/api/v1/category/all');
       const data = await response.json();
       setMenuData(data);
-      setLoading(false); // Set loading to false after data is fetched
+      setLoading(false); 
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -27,7 +27,7 @@ export default function SetMenu() {
 
   const handleDataUpdate = (updatedData) => {
     setMenuData(updatedData);
-    setForceUpdate(!forceUpdate); // Toggle forceUpdate to force re-render
+    setForceUpdate(!forceUpdate); 
   };
   
   const handleEditClick = (item) => {
@@ -37,7 +37,7 @@ export default function SetMenu() {
 
   return (
     <>
-      {loading ? ( // Render loading spinner if loading is true
+      {loading ? ( 
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
           <Spinner animation="border" />
         </div>
@@ -47,7 +47,6 @@ export default function SetMenu() {
             <FoodMenu menuData={menuData} onDataUpdate={handleDataUpdate} onEditClick={handleEditClick} />
           )}
           <EditFood show={editModalShow} handleClose={() => setEditModalShow(false)} selectedItem={selectedItem} onSaveChanges={handleDataUpdate} />
-          {/* Pass onDataUpdate to EditFood */}
         </>
       )}
     </>

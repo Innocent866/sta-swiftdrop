@@ -34,6 +34,18 @@ body{
   outline: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.custom-input-pass {
+  display: block;
+  width: 290%;
+  border: 0;
+  padding: 8px;
+  color: #333333;
+  box-shadow: 0 0 0 1px #d1d5db inset;
+  border-radius: 4px;
+  outline: 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 .custom-input-m {
   border: 0;
   padding: 8px;
@@ -298,6 +310,17 @@ body{
 .text-5 {
   width: 130%;
   margin-left: -40px;
+  border: 0;
+  padding: 8px;
+  color: #333333;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  resize: none;
+}
+.text-100 {
+  width: 300%;
+  margin-left: 10px;
   border: 0;
   padding: 8px;
   color: #333333;
@@ -698,7 +721,7 @@ input[type="date"]{
 .user-container {
   background-color: #ffffff; 
   margin-top: 20px; 
-  margin-left: 50px; 
+  margin-left: 20px; 
 }
 .user-container-profile {
   background-color: #ffffff; 

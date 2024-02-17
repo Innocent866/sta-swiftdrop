@@ -4,7 +4,6 @@ import Password from '../../components/profileComponent/hello/Password';
 import Account from '../../components/profileComponent/hello/Account';
 import User from '../../components/profileComponent/hello/User';
 import Payment from '../../components/profileComponent/hello/Payment';
-import Forgot from '../../components/profileComponent/hello/Forgot';
 
 export default function ProfileSection() {
   return (
@@ -35,7 +34,6 @@ export default function ProfileSection() {
               <Route path="Password" element={<Password />} />
               <Route path="User" element={<User />} />
               <Route path="Payment" element={<Payment />} />
-              <Route path="Forgot" element={<Forgot />} />
             </Routes>
           </div>
         </div>

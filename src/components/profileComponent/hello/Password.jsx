@@ -67,14 +67,14 @@ export default function Password() {
   };
 
   const customModalStyle = {
-    maxWidth: '400px', // Set the maximum width as per your requirement
-    color: 'black', // Set the desired background color
+    maxWidth: '400px', 
+    color: 'black',
    
   };
     
   return(
     <>
-      <div className='company-info-container'style={{ width: '1000%', height: '95%', right: '20', border: '1px groove'}}>
+      <div className='company-info-container'style={{ width: '900px', height: '95%', right: '20', border: '1px groove'}}>
         <h3 className='company-info-heading '>Change Password</h3>
       
      <div className='flex-container'>
@@ -83,17 +83,17 @@ export default function Password() {
     <div className='custom-row align-items-center'>
         <div className='custom-form-group group' id='formBasicEmail'>
             <label >Old Password</label>
-            <input type='password' name='old-password' id='old-password' placeholder='Old Password' autoComplete='family-name' className='custom-input' value={oldPassword}
+            <input type='password' name='old-password' id='old-password' placeholder='Old Password' autoComplete='family-name' className='custom-input-pass' value={oldPassword}
            onChange={handleChange}/>
         </div>
         <div className='custom-form-group group' id='formBasicEmail'>
             <label>New Password</label>
-            <input type='password' name='new-password' id='new-password' placeholder='New Password' autoComplete='family-name' className='custom-input' value={newPassword}
+            <input type='password' name='new-password' id='new-password' placeholder='New Password' autoComplete='family-name' className='custom-input-pass' value={newPassword}
                   onChange={handleChange}/>
         </div>
         <div className='custom-form-group group' id='formBasicEmail'>
             <label>Confirm Password</label>
-            <input type='password' name='confirm-password' id='confirm-password' placeholder='Confirm Password' autoComplete='family-name' className='custom-input' value={confirmPassword}
+            <input type='password' name='confirm-password' id='confirm-password' placeholder='Confirm Password' autoComplete='family-name' className='custom-input-pass' value={confirmPassword}
                   onChange={handleChange}/>
         </div>
         <div className=''>
