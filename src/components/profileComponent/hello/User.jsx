@@ -62,7 +62,7 @@ export default function User() {
     axios.put('https://swifdropp.onrender.com/api/v1/company/edit/6581527dc96a438562098fef', companyInfo)
       .then(response => {
         console.log('Company info updated successfully:', response.data);
-        navigate('/profile/User');
+        navigate('/profile/Account');
       })
       .catch(error => {
         console.error('Error updating company info:', error);
@@ -94,7 +94,7 @@ export default function User() {
           <Spinner animation="border" style={{ width: '4rem', height: '4rem' }} />
         </div>
       ) : (
-        <div className='user-container' style={{ width: '1060px', height: '496px', right: '20', border: '1px groove', top: '172px', marginLeft: '5px', left: '475px' }}>
+        <div className='user-container' style={{ width: '80%', height: '496px', right: '20', border: '1px groove', top: '172px' }}>
           <h3 className='user-title'>Edit Personal Information</h3>
 
           <div className='use'>

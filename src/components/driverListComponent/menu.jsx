@@ -22,7 +22,7 @@ export default function menu() {
     {title: "Registered Vehicle", icon:<CarTaxiFrontIcon size={25}/>, href:"Vehicle"},
     {title: "Delivery Request History", icon:<MailQuestionIcon size={25}/>, href:"Delivery"},
     {title: "Payout Method", icon:<Bitcoin size={25}/>, href:"Payout"},
-    {title: "Payout Mnagement", icon:<BanknoteIcon size={25}/>, href:"Pmanage"},
+    {title: "Payout Management", icon:<BanknoteIcon size={25}/>, href:"Pmanage"},
   ]
   return(
     <>

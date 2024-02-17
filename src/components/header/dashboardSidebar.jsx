@@ -18,7 +18,7 @@ export default function DashbaordSidebar(props) {
                         <ul className="nav flex-column">
 
                             <li className="nav-item mb-2">
-                                <Link to="/" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color1}` }}>
+                                <Link to="/MainDashboard" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color1}` }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M11.3572 0.543C11.6898 0.514 12.0255 0.5 12.3651 0.5C18.7665 0.5 23.9564 5.649 23.9564 12C23.9564 12.337 23.9423 12.67 23.9131 13H22.3951C21.8891 18.053 17.5913 22 12.3651 22C6.7983 22 2.28577 17.523 2.28577 12C2.28577 6.815 6.26409 2.551 11.3572 2.05V0.543ZM11.3572 13V4.062C7.13726 4.59472 4.06007 8.28785 4.32646 12.5C4.59284 16.7122 8.11118 19.9948 12.3651 20C16.4289 19.9999 19.8577 17.0001 20.3661 13H11.3572ZM13.3731 2.552C17.8638 3.02442 21.4119 6.54461 21.8881 11H13.3731V2.552Z" fill="black" />
                                     </svg>

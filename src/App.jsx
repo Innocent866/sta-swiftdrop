@@ -39,6 +39,9 @@ import CouponsEditPage from './pages/food-seller-list/coupons/couponsEdit';
 import ManageWorkDaysPage from './pages/food-seller-list/manageWorkDays';
 import AllReviewsPage from './pages/food-seller-list/allReviews';
 import PayoutMethodsPage from './pages/food-seller-list/payoutMethods/payout-methods';
+import Register from './pages/Register/Register'
+import Login from './pages/Login/Login'
+import Forgot from './components/profileComponent/hello/Forgot';
 export default function App() {
   return (
     <>
@@ -48,7 +51,7 @@ export default function App() {
           with exact path "/", in component props 
           we passes the imported component*/}
 
-          <Route exact path="/" element={<MainDashboard />} />
+          <Route exact path="/MainDashboard" element={<MainDashboard />} />
 
           <Route exact path="/profile/*" element={<ProfilePage />} />
           <Route exact path="/administrators" element={<AdministratorPage />} />
@@ -132,6 +135,17 @@ export default function App() {
             path="/general-setting"
             element={<GeneralSettingPage />}
           />
+            <Route
+            exact
+            path="/Register"
+            element={<Register />}
+          />
+          <Route
+            exact
+            path="/Login"
+            element={<Login />}
+          />
+           <Route path="Forgot" element={<Forgot />} />
         </Routes>
       </Router>
     </>
