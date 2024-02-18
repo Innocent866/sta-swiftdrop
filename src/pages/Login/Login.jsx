@@ -37,9 +37,9 @@ export default function Login(){
       });
       const responseData = await response.json();
     console.log(responseData);
+    navigate("/MainDashboard");
     if (responseData.token) {
       localStorage.setItem('token', responseData.token)
-      navigate('/MainDashboard')
        }
     } catch (error) {
       console.log(error);

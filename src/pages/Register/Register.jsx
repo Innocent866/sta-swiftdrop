@@ -6,62 +6,6 @@ import profile from '../../Asset/BG.svg';
 import {  useNavigate } from "react-router-dom";
 
 export default function Register() {
- /* const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    password: '',
-    email: '',
-    phoneNumber: '',
-    token: '',
-    address: '',
-    state: '',
-    city: '',
-    code: ''
-  });
-
-  const [error, setError] = useState(null); // State to hold error message
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('https://swifdropp.onrender.com/api/v1/register-superAdmin', formData);
-      console.log(response.data); // Handle success response
-      // Optionally, you can reset form data upon successful registration
-      setFormData({
-        firstName: '',
-        lastName: '',
-        password: '',
-        email: '',
-        phoneNumber: '',
-        token: '',
-        address: '',
-        state: '',
-        city: '',
-        code: ''
-      });
-      setError(null); // Reset error state
-    } catch (error) {
-      console.error('Registration failed:', error); // Log error for debugging
-      if (error.response) {
-        // Server responded with an error status code (4xx or 5xx)
-        setError(error.response.data.message); // Set error message from server response
-      } else if (error.request) {
-        // Request was made but no response received
-        setError('Network Error: Please try again later'); // Set generic network error message
-      } else {
-        // Something else happened in making the request
-        setError('An unexpected error occurred'); // Set generic error message
-      }
-    }
-  };*/
 
     const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -73,6 +17,7 @@ export default function Register() {
   const [city, setCity] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassWord] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
@@ -96,7 +41,7 @@ export default function Register() {
     try {
       const data = await fetch(
         "https://swifdropp.onrender.com/api/v1/register-superAdmin",
-        {
+        { 
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -108,10 +53,13 @@ export default function Register() {
       console.log(response);
       navigate("/Login");
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.data && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError("An error occurred while processing your request. Please try again later.");
+      }
     }
   };
-
 
   return (
     <div className="">
@@ -140,6 +88,7 @@ export default function Register() {
         </div>
         <div className="m-3">
           <h1 className="my-3 text-center">Become our partner</h1>
+          {error && <div className="text-danger text-center">{error}</div>}
 
            <form action="">
             <div className="d-flex justify-content-between">
