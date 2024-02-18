@@ -19,21 +19,16 @@ export default function FoodSellListComponent() {
     try {
       const response = await fetch(`https://swifdropp.onrender.com/api/v1/restaurant/`);
       const data = await response.json();
-      setTableData(data.restaurants);
+      setTableData(data.restaurants.map(restaurant => ({
+        ...restaurant,
+        roundedAverageRating: Math.round(restaurant.averageRating), // Add roundedAverageRating
+      })));
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
       setLoading(false);
     }
   };
-
-  // const handleFeatureChange = (id) => {
-  //   setTableData((prevData) =>
-  //     prevData.map((row) =>
-  //       row._id === id ? { ...row, featured: !row.featured } : row
-  //     )
-  //   );
-  // };
 
   const renderStarIcons = (rating) => {
     const starColor = rating >= 4 ? 'gold' : 'gray';
@@ -90,11 +85,11 @@ export default function FoodSellListComponent() {
                       <tr>
                         <th className="text-center">ID</th>
                         <th className="text-center">SELLER NAME</th>
+                        <th className="text-center">IMAGE</th>
                         <th className="text-center">BALANCE</th>
                         <th className="text-center">TOTAL SOLD</th>
                         <th className="text-center">WITHDRAW</th>
                         <th className="text-center">RATING</th>
-                        {/* <th className="text-center">FEATURED</th> */}
                         <th className="text-center">STATUS</th>
                         <th className="text-right no-print">ACTION</th>
                       </tr>
@@ -108,18 +103,13 @@ export default function FoodSellListComponent() {
                             <br />
                             {data.address}
                           </td>
+                          <td className="text-center">
+                            <img src={data.image} alt={data.restaurantName} style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+                          </td>
                           <td className="text-center">$345.45</td>
                           <td className="text-center">356</td>
                           <td className="text-center">$345.55</td>
-                          <td className="text-center">{renderStarIcons(2)}</td>
-                          {/* <td className="text-center">
-                            <input
-                              style={{ cursor: 'pointer' }}
-                              type="checkbox"
-                              checked={data.featured || false}
-                              onChange={() => handleFeatureChange(data._id)}
-                            />
-                          </td> */}
+                          <td className="text-center">{renderStarIcons(data.roundedAverageRating)}</td>
                           <td className="text-center">
                             <button className={`btn rounded-pill`} style={getStatusStyle(data.approved)}>
                               {data.approved ? 'Active' : 'Suspended'}
@@ -131,7 +121,7 @@ export default function FoodSellListComponent() {
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 title="View"
-                                to={`/food-seller-list/${data.restaurantName}`}
+                                to={`/food-seller-list/${data._id}`}
                                 className="btn btn-sm"
                               >
                                 <span>👁️</span>
@@ -140,16 +130,16 @@ export default function FoodSellListComponent() {
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 title="Edit"
-                                to="/edit-food-seller-list" className="btn btn-sm">
+                                to={`/edit-food-seller-list/${data._id}`} className="btn btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                   <path fillRule="evenodd" clipRule="evenodd" d="M4.82362 11.7455H1.99792V9.1225L9.61325 2.0536C9.87331 1.81227 10.2949 1.81227 10.5549 2.0536L12.4389 3.80243C12.6989 4.04383 12.6989 4.43514 12.4389 4.67654L4.82362 11.7455ZM4.27153 10.5091L11.0258 4.23949L10.0841 3.36538L3.32986 9.63498V10.5091H4.27153ZM13.9853 12.9818H1.99792V14.2182H13.9853V12.9818Z" fill="black" />
                                 </svg>
                               </Link>
                               <Link
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Suspend"
-                               to="/edit-food-seller-list" className="btn btn-sm">
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Suspend"
+                                to="/edit-food-seller-list" className="btn btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                   <path fillRule="evenodd" clipRule="evenodd" d="M14.3334 5.378L10.624 1.66667H5.37735L1.66669 5.37733V10.624L5.37735 14.3333H10.624L14.3334 10.6247V5.378ZM5.92935 3H10.0714V3.00067L13.0007 5.92933V10.072L10.0714 13.0013H5.92935L3.00069 10.072V5.93L5.92935 3ZM7.33335 10H8.66669V11.3333H7.33335V10ZM8.66669 4.66667H7.33335V8.66667H8.66669V4.66667Z" fill="black"/>
                                 </svg>
