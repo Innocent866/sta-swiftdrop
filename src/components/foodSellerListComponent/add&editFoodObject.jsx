@@ -7,9 +7,8 @@ import { useState } from 'react';
 import Select from 'react-select';
 
 
-export default function AddEditFoodObjectComponent() {
+export default function addEditFoodObjectComponent() {
   const [zipcode, setZipcode] = useState('');
-  const [logoUrl, setLogoUrl] = useState('/public/logo2.svg');
 
   const handleZipcodeChange = (e) => {
     const value = e.target.value;
@@ -17,28 +16,6 @@ export default function AddEditFoodObjectComponent() {
       setZipcode(value);
     }
   };
-  const handleFileChange = (e) => {
-    console.log('File change event triggered');
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        console.log('Image loaded successfully');
-        const imageUrl = event.target.result;
-        setLogoUrl(imageUrl);
-        console.log('logoUrl state updated:', logoUrl);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleButtonClick = () => {
-    console.log('Button clicked');
-    // Trigger file input click when the button is clicked
-    document.getElementById('fileInput').click();
-  };
-  
-
     const typeOptions = [
       { value: 'Restaurant', label: 'Restaurant' },
       { value: 'Canteen', label: 'Canteen' },
@@ -66,13 +43,6 @@ export default function AddEditFoodObjectComponent() {
       { value: 'canada', label: 'canada' },
       
     ];
-    const [idtype] = useState([
-      // Your initial data goes here
-      {name: "Restaurant"},
-      {name: "Cafe"},
-      {name: "Canteen"}
-      // Add more rows as needed
-    ]);
 
     const [selectedType, setSelectedType] = useState(null);
     const [selectedCuisines, setSelectedCuisines] = useState([]);
@@ -91,6 +61,16 @@ export default function AddEditFoodObjectComponent() {
     const handleCountryChange = (selectedOption) => {
       setSelectedCountry(selectedOption);
     };
+
+    
+    
+       const [idtype] = useState([
+        // Your initial data goes here
+        {name: "Restaurant"},
+        {name: "Cafe"},
+        {name: "Canteen"}
+        // Add more rows as needed
+      ]);
     return (
 
         <>
@@ -124,23 +104,16 @@ export default function AddEditFoodObjectComponent() {
                             </label>
                             <div className="border">
 
-                              <div className="column-flex pl10">
+                            <div className='column-flex pl10'>
+                                {/* <img src='/public/id-card-front.png' className="imageUpload"/> */}
                                 <div className="addLogoBox">
-                                  <img src={logoUrl} className="addLogo" alt="Logo" />
+
+                                  <img src="/public/logo2.svg"  className="addLogo" />
                                 </div>
 
-                                {/* Hidden file input */}
-                                <input
-                                  id="fileInput"
-                                  type="file"
-                                  accept="image/*"
-                                  style={{ display: 'none' }}
-                                  onChange={handleFileChange}
-                                />
-                                <button className="btn btn-primary" onClick={handleButtonClick}>
-                                  Add Logo Image
-                                </button>
-                              </div>
+                                <button className='btn btn-primary'>Add Logo Image</button>
+                                {/* <input type="file" value="Change Image" /> */}
+                            </div>
                             </div>
                         </div>
 
@@ -268,7 +241,7 @@ export default function AddEditFoodObjectComponent() {
                             <label htmlFor="city">City
                                 </label>
                             <input id="city" type="text" className="form-control"
-                                name="city" />
+                                name="city" value="Boston" />
 
                         </div>
 

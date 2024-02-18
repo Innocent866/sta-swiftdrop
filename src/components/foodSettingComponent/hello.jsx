@@ -8,7 +8,7 @@ import {
 
 export default function FoodSettingComponent() {
     const Menu = [
-        {title: "Food Categories/Add Categories", icon:<UtensilsCrossedIcon size={25}/>, href:"SetMenu"},
+        {title: "Food Categories/Add Categories", icon:<UtensilsCrossedIcon size={25}/>, href:"Foodmenu"},
         {title: "Review Settings", icon:<ThumbsUp size={25}/>, href:"Review"},
         {title: "Resturant fee", icon:<Percent size={25}/>, href:"Percent"},
       ] 
@@ -16,7 +16,7 @@ export default function FoodSettingComponent() {
     return(
         <>
         <div className='menu-container'>
-          <nav className='menu' style={{ width: '400px', height: '200px', border: '1px groove', marginLeft:'-20px'}}>
+          <nav className='menu' style={{ width: '400px', height: '200px', border: '1px groove'}}>
             <ul className='menu-top'>
               {Menu.map((menu, index)=>(
                 <li key={index} 

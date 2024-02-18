@@ -19,23 +19,21 @@ import {
     return(
       <>
       <div className='menu-container'>
-        <nav className='menu' style={{ width: '435px', height: '413px', border: '1px groove', marginLeft:'-20px', top:'172px'}}>
+        <nav className='menu' style={{ width: '400px', height: '350px', border: '1px groove', marginLeft:'-20px'}}>
           <div className='menu-set'>
           <img
                 className="  menu-avatar"
                 src={Swif}
                 alt=""
               />
-            
+              <div className=''>
               <h4 className="menu-text-1">Phantom Sam</h4>
-              <div className='' style={{display:'flex', justifyContent:'space-between', marginLeft:'80px'}}>
-             
-              
+              <span className="menu-text-2">Manager</span>
+              </div>
               <ul className="flex-1 px-3"></ul>
               <div className="menu-flex-container">
                 <div>
                   <MoreHorizontal size={20}/>
-                  </div>
                 </div>
               </div>
           </div>

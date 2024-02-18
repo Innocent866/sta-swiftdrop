@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import RightSideBar from '../dashboardComponent/bar/RightSideBar';
 import GoogleMapComponent from '../dashboardComponent/google/GoogleMapComponent';
-import React from 'react';
 
-function DashboardSection() {
+export default function DashboardSection() {
   return (
     <>
-      <div className="height">
+       <div className="height">
         <div className="breadcrumb-flex">
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb  pt-2 rounded-3">
@@ -36,7 +35,6 @@ function DashboardSection() {
             }}
           >
             <GoogleMapComponent />
-
             <RightSideBar />
           </div>
         </div>
@@ -44,4 +42,3 @@ function DashboardSection() {
     </>
   );
 }
-export default React.memo(DashboardSection);
