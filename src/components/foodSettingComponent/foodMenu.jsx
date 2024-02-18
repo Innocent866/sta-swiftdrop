@@ -101,7 +101,7 @@ import { useNavigate } from 'react-router-dom';
         return (
           <>
             <div style={{
-              width: '880px',
+              width: '75%',
               height: `${tableHeight + 140}px`,
               border: '1px solid #ccc',
               padding: '10px',
@@ -122,7 +122,7 @@ import { useNavigate } from 'react-router-dom';
       
                <Table  id="your-table-id"
             style={{
-              width: '850px',
+              width: '100%',
               height: '330.5px',
               border: '1px solid #ccc',
               borderRadius: '10px',
@@ -157,10 +157,10 @@ import { useNavigate } from 'react-router-dom';
                         </td>
                         <td style={{ display: 'flex' }}>
                           <p style={{ cursor: 'pointer', marginTop:'10px' }} onClick={() => handleEditClick(item)}>
-                            Edit <Pencil />
+                            Edit <Pencil size={15}/>
                           </p>
                           <p style={{ cursor: 'pointer', marginTop:'10px' }} onClick={() => handleDeleteClick(item._id)}>
-                            Delete <Trash2Icon />
+                            Delete <Trash2Icon size={15}/>
                           </p>
                         </td>
                       </tr>
