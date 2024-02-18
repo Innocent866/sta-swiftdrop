@@ -101,7 +101,7 @@ import { useNavigate } from 'react-router-dom';
         return (
           <>
             <div style={{
-              width: '75%',
+              width: '800px',
               height: `${tableHeight + 140}px`,
               border: '1px solid #ccc',
               padding: '10px',
@@ -122,7 +122,7 @@ import { useNavigate } from 'react-router-dom';
       
                <Table  id="your-table-id"
             style={{
-              width: '100%',
+              width: '780px',
               height: '330.5px',
               border: '1px solid #ccc',
               borderRadius: '10px',

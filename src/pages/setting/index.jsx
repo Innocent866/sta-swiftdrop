@@ -8,7 +8,6 @@ export default function SettingPage() {
     return (
 
         <>
-
             <DashboardHeader />
 
             <div className='container-fluid'>
@@ -42,7 +41,6 @@ export default function SettingPage() {
                 </div>
 
             </div>
-
         </>
 
     )
