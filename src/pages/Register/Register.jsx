@@ -149,7 +149,7 @@ export default function Register() {
 
               <div className="my-2 ms-1">
               <label htmlFor="" className="label">
-              Token
+              Secret Code
             </label>
             <input
               type="text"
