@@ -38,14 +38,46 @@ export default function FoodSellListComponent() {
     return stars;
   };
 
-  const deleteData = (id) => {
-    // Implement your delete logic here
-    console.log(`Deleting data with id: ${id}`);
+  const deleteData = async (id) => {
+    try {
+      const response = await fetch(`https://swifdropp.onrender.com/api/v1/restaurant/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        console.log(`Data with ID ${id} deleted successfully`);
+        // Refresh data after deletion
+        fetchData();
+      } else {
+        console.error(`Failed to delete data with ID ${id}`);
+      }
+    } catch (error) {
+      console.error('Error deleting data:', error);
+    }
   };
 
-  const getStatusStyle = (approved) => {
-    const textColor = approved ? '#28a745' : 'red'; // Text color based on status
-    return { borderColor: textColor, color: textColor, borderRadius: '8px' };
+
+  const getStatusStyle = (approved, isActive) => {
+    if (!approved) {
+      return { borderColor: 'orange', color: 'orange', borderRadius: '8px' };
+    } else if (isActive) {
+      return { borderColor: 'green', color: 'green', borderRadius: '8px' };
+    } else {
+      return { borderColor: 'red', color: 'red', borderRadius: '8px' };
+    }
+  };
+  
+  const getStatusText = (approved, isActive) => {
+    if (!approved) {
+      return 'Pending';
+    } else if (isActive) {
+      return 'Active';
+    } else {
+      return 'Suspended';
+    }
   };
 
   return (
@@ -111,9 +143,9 @@ export default function FoodSellListComponent() {
                           <td className="text-center">$345.55</td>
                           <td className="text-center">{renderStarIcons(data.roundedAverageRating)}</td>
                           <td className="text-center">
-                            <button className={`btn rounded-pill`} style={getStatusStyle(data.approved)}>
-                              {data.approved ? 'Active' : 'Suspended'}
-                            </button>
+                          <button className={`btn rounded-pill`} style={getStatusStyle(data.approved, data.isActive)}>
+        {getStatusText(data.approved, data.isActive)}
+      </button>
                           </td>
                           <td className="text-right no-print">
                             <div className="btn-group">
@@ -146,7 +178,7 @@ export default function FoodSellListComponent() {
                               </Link>
                               
                               <button
-                                onClick={() => deleteData(data.slug)}
+                                onClick={() => deleteData(data._id)}
                                 className="btn btn-sm"
                               >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
