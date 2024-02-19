@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import FoodSellerCustomerComponent from "../../../foodSellerListComponent/editFoodList/personal-info";
+import FoodSellerCustomerComponent from "../../../foodSellerListComponent/editFoodList/editRestaurant";
 export default function foodSellerListSection() {
 
     return (

@@ -67,12 +67,12 @@ export default function App() {
           />
           <Route
             exact
-            path="/food-seller-list/:slug"
+            path="/food-seller-list/:id"
             element={<FoodSellerCustomerPage />}
           />
           <Route
             exact
-            path="/edit-food-seller-list"
+            path="/edit-food-seller-list/:id"
             element={<EditFoodSellerCustomerPage />}
           />
           <Route
